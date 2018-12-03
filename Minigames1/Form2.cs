@@ -23,7 +23,10 @@ namespace Minigames1
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            var form1 = new MiniGames();
+            form1.Closed += (s, args) => this.Close();
+            form1.Show();
         }
     }
 }

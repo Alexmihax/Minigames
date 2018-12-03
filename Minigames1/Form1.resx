@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="minePic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MinePic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAABGdBTUEAALGPC/xhBQAAb+1JREFUeF7t
         3Qe0ZVW953t7vPdGjzf6hbbt13073H6v772K5IzksnI+VXVyPpUDBQWSMxIkihEERBBBREWyIFGQqAiI
@@ -601,7 +601,7 @@
         S7M0S7M0S7M0S7M0S7M0S7M0y7+6fOpT/z8qW9gGRV6eCAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="shipPic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ShipPic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAbQAAAFpCAYAAAD0lN23AAAABGdBTUEAALGPC/xhBQAAhzJJREFUeF7t
         nfmjFEWW7/lPema0u21t96XdWtxxAZRNUVAUxEZwXwBBkB0UcBdwQ1EUd0UERUDFHRBkU7QV3BFQUHu6

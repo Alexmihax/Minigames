@@ -42,7 +42,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(4, 40);
+            this.checkBox1.Location = new System.Drawing.Point(7, 51);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(48, 17);
             this.checkBox1.TabIndex = 0;
@@ -58,22 +58,24 @@
             this.difficultyPanel.Controls.Add(this.checkBox1);
             this.difficultyPanel.Location = new System.Drawing.Point(184, 137);
             this.difficultyPanel.Name = "difficultyPanel";
-            this.difficultyPanel.Size = new System.Drawing.Size(203, 106);
+            this.difficultyPanel.Size = new System.Drawing.Size(203, 122);
             this.difficultyPanel.TabIndex = 1;
             // 
             // nivel
             // 
+            this.nivel.AutoSize = true;
             this.nivel.BackColor = System.Drawing.Color.Transparent;
+            this.nivel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
             this.nivel.Location = new System.Drawing.Point(3, 14);
             this.nivel.Name = "nivel";
-            this.nivel.Size = new System.Drawing.Size(100, 13);
+            this.nivel.Size = new System.Drawing.Size(169, 23);
             this.nivel.TabIndex = 4;
             this.nivel.Text = "Nivel de dificultate";
             // 
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(4, 63);
+            this.checkBox3.Location = new System.Drawing.Point(7, 74);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(55, 17);
             this.checkBox3.TabIndex = 2;
@@ -83,7 +85,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(4, 86);
+            this.checkBox2.Location = new System.Drawing.Point(7, 97);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(65, 17);
             this.checkBox2.TabIndex = 1;
@@ -128,7 +130,6 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.PictureBox backButton;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label nivel;
     }
 }

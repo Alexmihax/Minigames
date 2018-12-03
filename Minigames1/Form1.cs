@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace Minigames1
 {
-    public partial class miniGames : Form
+    public partial class MiniGames : Form
     {
-        public miniGames()
+        public MiniGames()
         {
             InitializeComponent();
         }
-        private void minePic_Click(object sender, EventArgs e)
+        private void MinePic_Click(object sender, EventArgs e)
         {
             this.Hide();
             var form2 = new Minesweeper();
@@ -24,7 +24,7 @@ namespace Minigames1
             form2.Show();
         }
 
-        private void shipPic_Click(object sender, EventArgs e)
+        private void ShipPic_Click(object sender, EventArgs e)
         {
             this.Hide();
             var form3 = new Form3();
