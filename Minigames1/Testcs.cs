@@ -10,20 +10,11 @@ using System.Windows.Forms;
 
 namespace Minigames1
 {
-    public partial class Minesweeper : Form
+    public partial class Testcs : Form
     {
-        public Minesweeper()
+        public Testcs()
         {
             InitializeComponent();
-        }
-            private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

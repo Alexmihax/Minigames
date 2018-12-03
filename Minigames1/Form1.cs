@@ -19,7 +19,7 @@ namespace Minigames1
         private void minePic_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var form2 = new Form2();
+            var form2 = new Minesweeper();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
         }
