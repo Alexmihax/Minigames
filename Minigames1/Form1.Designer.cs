@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace MinigamesUI
+namespace Minigames1
 {
     partial class miniGames
     {
@@ -74,11 +74,11 @@ namespace MinigamesUI
             this.mineSweeper.BackColor = System.Drawing.Color.Transparent;
             this.mineSweeper.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
             this.mineSweeper.ForeColor = System.Drawing.Color.MediumBlue;
-            this.mineSweeper.Location = new System.Drawing.Point(101, 179);
+            this.mineSweeper.Location = new System.Drawing.Point(103, 178);
             this.mineSweeper.Name = "mineSweeper";
             this.mineSweeper.Size = new System.Drawing.Size(123, 23);
             this.mineSweeper.TabIndex = 5;
-            this.mineSweeper.Text = "Minesweeper";
+            this.mineSweeper.Text = "Minesweeper\r\n";
             // 
             // battleShips
             // 
@@ -86,7 +86,7 @@ namespace MinigamesUI
             this.battleShips.BackColor = System.Drawing.Color.Transparent;
             this.battleShips.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
             this.battleShips.ForeColor = System.Drawing.Color.MediumBlue;
-            this.battleShips.Location = new System.Drawing.Point(427, 179);
+            this.battleShips.Location = new System.Drawing.Point(427, 178);
             this.battleShips.Name = "battleShips";
             this.battleShips.Size = new System.Drawing.Size(103, 23);
             this.battleShips.TabIndex = 6;
@@ -127,6 +127,7 @@ namespace MinigamesUI
             this.shipPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.shipPic.TabIndex = 3;
             this.shipPic.TabStop = false;
+            this.shipPic.Click += new System.EventHandler(this.shipPic_Click);
             // 
             // miniGames
             // 
