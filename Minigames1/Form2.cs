@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Minigames1
 {
-    public partial class Minesweeper : Form
+    public partial class MinesweeperSettings : Form
     {
-        public Minesweeper()
+        public MinesweeperSettings()
         {
             InitializeComponent();
         }
@@ -50,6 +50,18 @@ namespace Minigames1
         private void Minesweeper_Load(object sender, EventArgs e)
         {
 
+        }
+        private void Color_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Start_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form4 = new Minesweeper();
+            form4.Closed += (s, args) => this.Close();
+            form4.Show();
         }
     }
 }
