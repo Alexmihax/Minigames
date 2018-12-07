@@ -63,5 +63,20 @@ namespace Minigames1
             form4.Closed += (s, args) => this.Close();
             form4.Show();
         }
+
+        private void nivelDificulatate_Scroll(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

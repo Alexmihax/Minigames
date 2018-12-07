@@ -73,7 +73,7 @@ namespace Minigames1
             this.mineSweeper.AutoSize = true;
             this.mineSweeper.BackColor = System.Drawing.Color.Transparent;
             this.mineSweeper.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
-            this.mineSweeper.ForeColor = System.Drawing.Color.MediumBlue;
+            this.mineSweeper.ForeColor = System.Drawing.Color.AliceBlue;
             this.mineSweeper.Location = new System.Drawing.Point(103, 178);
             this.mineSweeper.Name = "mineSweeper";
             this.mineSweeper.Size = new System.Drawing.Size(123, 23);
@@ -85,7 +85,7 @@ namespace Minigames1
             this.battleShips.AutoSize = true;
             this.battleShips.BackColor = System.Drawing.Color.Transparent;
             this.battleShips.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
-            this.battleShips.ForeColor = System.Drawing.Color.MediumBlue;
+            this.battleShips.ForeColor = System.Drawing.Color.AliceBlue;
             this.battleShips.Location = new System.Drawing.Point(427, 178);
             this.battleShips.Name = "battleShips";
             this.battleShips.Size = new System.Drawing.Size(103, 23);
@@ -97,7 +97,7 @@ namespace Minigames1
             this.titlu.AutoSize = true;
             this.titlu.BackColor = System.Drawing.Color.Transparent;
             this.titlu.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
-            this.titlu.ForeColor = System.Drawing.Color.MediumBlue;
+            this.titlu.ForeColor = System.Drawing.Color.AliceBlue;
             this.titlu.Location = new System.Drawing.Point(134, 9);
             this.titlu.Name = "titlu";
             this.titlu.Size = new System.Drawing.Size(396, 23);
