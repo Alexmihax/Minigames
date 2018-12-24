@@ -33,7 +33,6 @@ namespace Minigames1
         int mines;
         int flag_value = 10;
         int flag;
-        int game_mode; //easy, medium, hard
         int gameScore = 0;
 
         //Button Aspect
@@ -45,7 +44,44 @@ namespace Minigames1
         int width, height;
 
         public Minesweeper()
-        {
+        {   switch (MinesweeperSettings.custom)
+            {
+                case true:
+                    {
+                        width = MinesweeperSettings.h;
+                        height = MinesweeperSettings.l;
+                        mines = MinesweeperSettings.m;
+                    }
+                    break;
+                case false:
+                    {
+                        switch (MinesweeperSettings.n)
+                        {
+                            case 1:
+                                {
+                                    width = 9;
+                                    height = 9;
+                                    mines = 10;
+                                }
+                                break;
+                            case 2:
+                                {
+                                    width = 16;
+                                    height = 16;
+                                    mines = 40;
+                                }
+                                break;
+                             case 3:
+                                {
+                                    width = 16;
+                                    height = 30;
+                                    mines = 99;
+                                }
+                                break;
+                        }
+                    }
+                    break;
+            }
             InitializeComponent();
         }
 
@@ -262,14 +298,21 @@ namespace Minigames1
 
         }
 
-        void StartGame()
-        {
-           
-        }
 
         void ResetGame()
         {
+            int i, j;
 
+            for (i = 1; i <= width; i++)
+                for (j = 1; j <= height; j++)
+                {
+                    btn[i, j].Enabled = true;
+                    btn_state[i, j] = 0;
+                    saved_btn_state[i, j] = 0;
+
+                    btn[i, j].BackgroundImage = null;
+                    btn[i, j].Text = "";
+                }
         }
 
         /*void Warning(int ok)

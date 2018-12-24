@@ -16,18 +16,6 @@ namespace Minigames1
         {
             InitializeComponent();
         }
-        private void Usor_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void Avansat_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void Mediu_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
@@ -36,46 +24,93 @@ namespace Minigames1
             form1.Closed += (s, args) => this.Close();
             form1.Show();
         }
-
-        private void DifficultyPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Nivel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Minesweeper_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void Color_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        public static int n,h,l,m;
+        public static bool custom;
+        
         private void Start_Click(object sender, EventArgs e)
         {
+            if (checkBox1.Checked)
+            {
+                custom = true;
+                h = int.Parse(lungime.Text);
+                l = int.Parse(latime.Text);
+                m = int.Parse(mine.Text);
+            }
+            else
+            {
+                custom = false;
+                n = nivelDificulatate.Value;
+            }
             this.Hide();
             var form4 = new Minesweeper();
             form4.Closed += (s, args) => this.Close();
             form4.Show();
         }
-
-        private void nivelDificulatate_Scroll(object sender, EventArgs e)
+        private void How_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+        private void Quit_Click(object sender, EventArgs e) => this.Close();
 
+        private bool flag;
+        private int val;
+        private void Latime_Enter(object sender, EventArgs e)
+        {
+            
+            if (flag == false)
+            {
+                flag = true;
+                try
+                {
+                    val = System.Convert.ToInt32(latime.Text);
+                }
+                catch
+                {
+                    latime.Clear();
+                }
+                flag = false;
+
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Lungime_Enter(object sender, EventArgs e)
+
         {
+            
+            if (flag == false)
+            {
+                flag = true;
+                try
+                {
+                    val = System.Convert.ToInt32(lungime.Text);
+                }
+                catch
+                {
+                    lungime.Clear();
+                }
+
+                flag = false;
+            }
+        }
+        private void Mine_Enter(object sender, EventArgs e)
+
+        {
+           
+            if (flag == false)
+            {
+                flag = true;
+                try
+                {
+                    val = System.Convert.ToInt32(mine.Text);
+                }
+                catch
+                {
+                    mine.Clear();
+                }
+                flag = false;
+
+            }
 
         }
     }
