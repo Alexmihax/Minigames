@@ -18,8 +18,8 @@ namespace Minigames1
         int[,] btn_state = new int[50, 50];
         int[,] saved_btn_state = new int[50, 50];
 
-        int startGame = true;
-        int gameover = false;
+        bool startGame = true;
+        bool gameover = false;
 
         //Directional Arrays on OX and OY
         int[] dx = { 1, 0, -1, 0, 1, -1, -1, 1 };
@@ -237,7 +237,7 @@ namespace Minigames1
                 }
         }
 
-        private void Flag_Cell(onject sender, MouseEventArgs e) // Function to add Flags
+        private void Flag_Cell(object sender, MouseEventArgs e) // Function to add Flags
         {
 
         }
