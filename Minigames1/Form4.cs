@@ -16,18 +16,10 @@ namespace Minigames1
         {
             InitializeComponent();
         }
-        private void StatusButton_Click(object sender, EventArgs e)
+
+        private void Minesweeper_Load(object sender, EventArgs e)
         {
 
         }
-        private void BackButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var form2 = new MinesweeperSettings();
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();   
-        }
-
-      
     }
 }
