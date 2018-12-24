@@ -24,7 +24,8 @@ namespace Minigames1
             form1.Closed += (s, args) => this.Close();
             form1.Show();
         }
-        public static int n,h,l,m;
+
+        public static int niv, w, h, mine_nr;
         public static bool custom;
         
         private void Start_Click(object sender, EventArgs e)
@@ -32,14 +33,14 @@ namespace Minigames1
             if (checkBox1.Checked)
             {
                 custom = true;
-                h = int.Parse(lungime.Text);
-                l = int.Parse(latime.Text);
-                m = int.Parse(mine.Text);
+                w = int.Parse(lungime.Text);
+                h = int.Parse(latime.Text);
+                mine_nr = int.Parse(mine.Text);
             }
             else
             {
                 custom = false;
-                n = nivelDificulatate.Value;
+                niv = nivelDificulatate.Value;
             }
             this.Hide();
             var form4 = new Minesweeper();

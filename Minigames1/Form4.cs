@@ -26,11 +26,14 @@ namespace Minigames1
         int[] dy = { 0, 1, 0, -1, 1, -1, 1, -1 };
 
         //Time Counter
-        int seconds = 0;
-        int minutes = 0;
+        static int seconds;
+        Timer timer = new Timer
+        {
+            Interval = 1000
+        };
 
-        //Game Variables
-        int mines;
+    //Game Variables
+    int mines;
         int flag_value = 10;
         int flag;
         int gameScore = 0;
@@ -43,19 +46,20 @@ namespace Minigames1
         int start_x, start_y;
         int width, height;
 
+
         public Minesweeper()
         {   switch (MinesweeperSettings.custom)
             {
                 case true:
                     {
-                        width = MinesweeperSettings.h;
-                        height = MinesweeperSettings.l;
-                        mines = MinesweeperSettings.m;
+                        width = MinesweeperSettings.w;
+                        height = MinesweeperSettings.h;
+                        mines = MinesweeperSettings.mine_nr;
                     }
                     break;
                 case false:
                     {
-                        switch (MinesweeperSettings.n)
+                        switch (MinesweeperSettings.niv)
                         {
                             case 1:
                                 {
@@ -64,6 +68,7 @@ namespace Minigames1
                                     mines = 10;
                                 }
                                 break;
+
                             case 2:
                                 {
                                     width = 16;
@@ -71,7 +76,8 @@ namespace Minigames1
                                     mines = 40;
                                 }
                                 break;
-                             case 3:
+
+                            case 3:
                                 {
                                     width = 16;
                                     height = 30;
@@ -82,6 +88,9 @@ namespace Minigames1
                     }
                     break;
             }
+
+
+
             InitializeComponent();
         }
 
@@ -91,11 +100,6 @@ namespace Minigames1
             var form2 = new MinesweeperSettings();
             form2.Closed += (s, args) => this.Close();
             form2.Show();
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            ResetGame();
         }
 
         private void Minesweeper_Load(object sender, EventArgs e)
@@ -111,8 +115,8 @@ namespace Minigames1
             if (gameover && btn_state[x, y] == flag_value)
                 btn_state[x, y] = saved_btn_state[x, y];
 
-            /*if (gameover) Make TIMER
-                timerCounter.Stop();*/
+            if (gameover) 
+                timeCounter.Text = "000";
 
             switch (btn_state[x, y]) //Switches Button Image
             {
@@ -225,7 +229,6 @@ namespace Minigames1
         {
             gameover = true;
             Show_Map();
-            gameScore = 0;
             MessageBox.Show("Congratulations, You WON!");
         }
 
@@ -298,6 +301,18 @@ namespace Minigames1
 
         }
 
+        public static void OnTimeEvent(object source, EventArgs e)
+        {
+            seconds = int.Parse(timeCounter.Text);
+        }
+
+        void StartGame()
+        {
+            timer.Enabled = true;
+            timer.Tick += new System.EventHandler(OnTimeEvent);
+
+        }
+
 
         void ResetGame()
         {
@@ -315,35 +330,6 @@ namespace Minigames1
                 }
         }
 
-        /*void Warning(int ok)
-        {
-            switch (ok)
-            {
-                case 1:
-                    MessageBox.Show("Empty Fields !");
-                    break;
-
-                case 2:
-                    MessageBox.Show("Input is not Valid!");
-                    break;
-            }
-        }
-
-        bool Input_has_Letters(string s)
-        {
-            int i, len = s.length();
-
-            for (i = 0; i < len; i++)
-
-                if (!Char.IsDigit(s, i)) return true;
-            return false;
-        }
-
-        bool Check_Input() //Check if the input is not empty and contains numbers only
-        {
-
-        }
-        */
 
         void SetDimensions()
         {
@@ -355,15 +341,12 @@ namespace Minigames1
 
         }
 
-        private void Play_Button(object sender, EventArgs e) //If the inpus is correct (first game -> create everything) / (! first game -> reset everything)
+        private void Button1_Click(object sender, EventArgs e) //If the inpus is correct (first game -> create everything) / (! first game -> reset everything)
         {
 
         }
 
-        private void Start_Timer(object sender, EventArgs e)
-        {
-
-        }
+        
 
 
 
