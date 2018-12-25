@@ -18,7 +18,9 @@ namespace Minigames1
         int[,] btn_state = new int[50, 50];
         int[,] saved_btn_state = new int[50, 50];
 
-        bool startGame = true;
+        Point coord;
+
+        bool firstplay = true;
         bool gameover = false;
 
         //Directional Arrays on OX and OY
@@ -26,17 +28,16 @@ namespace Minigames1
         int[] dy = { 0, 1, 0, -1, 1, -1, 1, -1 };
 
         //Time Counter
-        int seconds;
+        int seconds = 0;
         Timer timer = new Timer
         {
             Interval = 1000
         };
 
-    //Game Variables
-    int mines;
+        //Game Variables
+        int mines;
         int flag_value = 10;
-        int flag;
-        int gameScore = 0;
+        int flags;  
 
         //Button Aspect
         int button_size = 20;
@@ -89,7 +90,7 @@ namespace Minigames1
                     break;
             }
 
-
+            flags = mines;
 
             InitializeComponent();
         }
@@ -116,8 +117,8 @@ namespace Minigames1
             if (gameover && btn_state[x, y] == flag_value)
                 btn_state[x, y] = saved_btn_state[x, y];
 
-            if (gameover) 
-                timeCounter.Text = "000";
+            if (gameover)
+                timeCounter.Text = seconds.ToString().PadLeft(3, '0');
 
             switch (btn_state[x, y]) //Switches Button Image
             {
@@ -203,13 +204,6 @@ namespace Minigames1
 
         }
 
-        void GameOver()
-        {
-            gameover = true;
-            Show_Map();
-            MessageBox.Show("Game over !:(");
-        }
-
         void Flag_Win_Check() //Checks if a player wins by placing all the flags on the correct positions(the bombs)
         {
             int i, j;
@@ -224,6 +218,13 @@ namespace Minigames1
 
             if (win) WinGame();
 
+        }
+
+        void GameOver()
+        {
+            gameover = true;
+            Show_Map();
+            MessageBox.Show("Game over !:(");
         }
 
         void WinGame()
@@ -289,12 +290,52 @@ namespace Minigames1
 
         private void Flag_Cell(object sender, MouseEventArgs e) // Function to add Flags
         {
+            if(e.Button == MouseButtons.Right)
+            {
+                coord = ((Button)sender).Location;
+                int x = (coord.X - start_x) / button_size;
+                int y = (coord.Y - start_y) / button_size;
 
+                if(btn_state[x, y] != 10 && flags > 0)
+                {
+                    btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
+                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources.flagged;
+
+                    btn_state[x, y] = flag_value;
+
+                    flags--;
+                    Flag_Win_Check();
+                }
+
+                else if (btn_state[x, y] == flag_value)
+                {
+                    btn_state[x, y] = saved_btn_state[x, y];
+                    btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
+                    btn[x, y].BackgroundImage = null;
+
+                    flags++;
+                }
+
+                flagsCounter.Text = flags.ToString();
+            }
         }
 
         void Generate_Buttons(int x, int y)
         {
+            int i, j;
 
+            for(i = 1; i <= x; i++)
+                for(j = 1; j <= y; j++)
+                {
+                    btn[i, j] = new Button();
+                    btn[i, j].SetBounds(i * button_size + start_x, j * button_size + start_y, distance_between, distance_between);
+                    btn[i, j].Click += new EventHandler(OnClick);
+                    btn[i, j].MouseUp += new MouseEventHandler(Flag_Cell);
+                    btn_state[i, j] = 0;
+                    saved_btn_state[i, j] = 0;
+                    Controls.Add(btn[i, j]);
+
+                }
         }
 
         void Generate_Map(int x, int y, int m)
@@ -302,9 +343,9 @@ namespace Minigames1
 
         }
 
-        private void OnTimeEvent(object source, EventArgs e)
+        public void OnTimeEvent(object source, EventArgs e)
         {
-            int seconds = int.Parse(timeCounter.Text);
+            //int seconds = int.Parse(timeCounter.Text);
             seconds++;
             timeCounter.Text = seconds.ToString().PadLeft(3, '0');
         }    
@@ -317,7 +358,19 @@ namespace Minigames1
         }
         void StartGame()
         {
+            flags = mines;
+            flagsCounter.Text = flags.ToString();
+            gameover = false;
 
+            seconds = 0;
+            timeCounter.Text = "000";
+            StartTimer();
+
+            if (firstplay)
+                Generate_Buttons(width, height);
+
+            Generate_Map(width, height, mines);
+            Set_Map_Numbers(width, height);
         }
 
         void ResetGame()
@@ -336,25 +389,27 @@ namespace Minigames1
                 }
         }
 
-
-        void SetDimensions()
-        {
-
-        }
-
         void Matrix_Margins(int x, int y)
         {
-
+            start_x = (width * distance_between) / 2;
+            start_y = (height * distance_between) / 2;
         }
 
-        private void Button1_Click(object sender, EventArgs e) //If the inpus is correct (first game -> create everything) / (! first game -> reset everything)
+        private void Button1_Click(object sender, EventArgs e) //A.K.A Reset Game Button
         {
-            StartTimer();
+            Matrix_Margins(width, height);
+
+            if (firstplay)
+            {
+                StartGame();
+                firstplay = false;
+            }
+
+            if (!firstplay)
+            {
+                ResetGame();
+                StartGame();
+            }
         }
-
-        
-
-
-
     }
 }

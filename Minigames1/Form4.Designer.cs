@@ -31,7 +31,7 @@ namespace Minigames1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Minesweeper));
-            this.bombsCounter = new System.Windows.Forms.Label();
+            this.flagsCounter = new System.Windows.Forms.Label();
             this.timeCounter = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,17 +40,17 @@ namespace Minigames1
             ((System.ComponentModel.ISupportInitialize)(this.backButton)).BeginInit();
             this.SuspendLayout();
             // 
-            // bombsCounter
+            // flagsCounter
             // 
-            this.bombsCounter.AutoSize = true;
-            this.bombsCounter.BackColor = System.Drawing.Color.Black;
-            this.bombsCounter.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
-            this.bombsCounter.ForeColor = System.Drawing.Color.Red;
-            this.bombsCounter.Location = new System.Drawing.Point(69, 15);
-            this.bombsCounter.Name = "bombsCounter";
-            this.bombsCounter.Size = new System.Drawing.Size(56, 31);
-            this.bombsCounter.TabIndex = 7;
-            this.bombsCounter.Text = "100";
+            this.flagsCounter.AutoSize = true;
+            this.flagsCounter.BackColor = System.Drawing.Color.Black;
+            this.flagsCounter.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.flagsCounter.ForeColor = System.Drawing.Color.Red;
+            this.flagsCounter.Location = new System.Drawing.Point(69, 15);
+            this.flagsCounter.Name = "bombsCounter";
+            this.flagsCounter.Size = new System.Drawing.Size(56, 31);
+            this.flagsCounter.TabIndex = 7;
+            this.flagsCounter.Text = "000";
             // 
             // timeCounter
             // 
@@ -72,9 +72,9 @@ namespace Minigames1
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(121, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 31);
+            this.label1.Size = new System.Drawing.Size(77, 31);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Bombs";
+            this.label1.Text = "Flags";
             // 
             // label2
             // 
@@ -122,7 +122,7 @@ namespace Minigames1
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.timeCounter);
-            this.Controls.Add(this.bombsCounter);
+            this.Controls.Add(this.flagsCounter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -135,7 +135,7 @@ namespace Minigames1
         }
 
         #endregion
-        private System.Windows.Forms.Label bombsCounter;
+        private System.Windows.Forms.Label flagsCounter;
         private System.Windows.Forms.Label timeCounter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
