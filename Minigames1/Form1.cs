@@ -14,6 +14,7 @@ namespace Minigames1
     {
         public MiniGames()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
         private void MinePic_Click(object sender, EventArgs e)
@@ -21,6 +22,7 @@ namespace Minigames1
             this.Hide();
             var form2 = new MinesweeperSettings();
             form2.Closed += (s, args) => this.Close();
+            form2.StartPosition = FormStartPosition.CenterScreen;
             form2.Show();
         }
 

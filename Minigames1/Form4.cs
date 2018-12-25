@@ -26,7 +26,7 @@ namespace Minigames1
         int[] dy = { 0, 1, 0, -1, 1, -1, 1, -1 };
 
         //Time Counter
-        static int seconds;
+        int seconds;
         Timer timer = new Timer
         {
             Interval = 1000
@@ -99,6 +99,7 @@ namespace Minigames1
             this.Hide();
             var form2 = new MinesweeperSettings();
             form2.Closed += (s, args) => this.Close();
+            form2.StartPosition = FormStartPosition.CenterScreen;
             form2.Show();
         }
 
@@ -301,18 +302,23 @@ namespace Minigames1
 
         }
 
-        public static void OnTimeEvent(object source, EventArgs e)
+        private void OnTimeEvent(object source, EventArgs e)
         {
-            seconds = int.Parse(timeCounter.Text);
-        }
+            int seconds = int.Parse(timeCounter.Text);
+            seconds++;
+            timeCounter.Text = seconds.ToString().PadLeft(3, '0');
+        }    
 
-        void StartGame()
+        private void StartTimer() // set to start when pressing the Status Button
         {
             timer.Enabled = true;
             timer.Tick += new System.EventHandler(OnTimeEvent);
 
         }
+        void StartGame()
+        {
 
+        }
 
         void ResetGame()
         {
@@ -343,7 +349,7 @@ namespace Minigames1
 
         private void Button1_Click(object sender, EventArgs e) //If the inpus is correct (first game -> create everything) / (! first game -> reset everything)
         {
-
+            StartTimer();
         }
 
         

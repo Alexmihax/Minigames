@@ -601,176 +601,11 @@
         S7M0S7M0S7M0S7M0S7M0S7M0y7+6fOpT/z8qW9gGRV6eCAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="MinePic.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 63</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="MinePic.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="MinePic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 128</value>
-  </data>
-  <data name="MinePic.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="MinePic.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;MinePic.Name" xml:space="preserve">
-    <value>MinePic</value>
-  </data>
-  <data name="&gt;&gt;MinePic.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MinePic.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MinePic.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="ticTacToe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 244</value>
-  </data>
-  <data name="ticTacToe.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="ticTacToe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 119</value>
-  </data>
-  <data name="ticTacToe.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;ticTacToe.Name" xml:space="preserve">
-    <value>ticTacToe</value>
-  </data>
-  <data name="&gt;&gt;ticTacToe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ticTacToe.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ticTacToe.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="mineSweeper.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="mineSweeper.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 15pt, style=Bold</value>
-  </data>
-  <data name="mineSweeper.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 178</value>
-  </data>
-  <data name="mineSweeper.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 23</value>
-  </data>
-  <data name="mineSweeper.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="mineSweeper.Text" xml:space="preserve">
-    <value>Minesweeper
-</value>
-  </data>
-  <data name="&gt;&gt;mineSweeper.Name" xml:space="preserve">
-    <value>mineSweeper</value>
-  </data>
-  <data name="&gt;&gt;mineSweeper.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mineSweeper.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;mineSweeper.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="battleShips.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="battleShips.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 15pt, style=Bold</value>
-  </data>
-  <data name="battleShips.Location" type="System.Drawing.Point, System.Drawing">
-    <value>427, 178</value>
-  </data>
-  <data name="battleShips.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 23</value>
-  </data>
-  <data name="battleShips.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="battleShips.Text" xml:space="preserve">
-    <value>Battleships</value>
-  </data>
-  <data name="&gt;&gt;battleShips.Name" xml:space="preserve">
-    <value>battleShips</value>
-  </data>
-  <data name="&gt;&gt;battleShips.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;battleShips.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;battleShips.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="titlu.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="titlu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Times New Roman, 15pt, style=Bold</value>
-  </data>
-  <data name="titlu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 9</value>
-  </data>
   <data name="titlu.Size" type="System.Drawing.Size, System.Drawing">
     <value>397, 23</value>
   </data>
-  <data name="titlu.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
   <data name="titlu.Text" xml:space="preserve">
     <value>Apăsați pe jocul pe care doriți sa îl deschideți!</value>
-  </data>
-  <data name="titlu.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="&gt;&gt;titlu.Name" xml:space="preserve">
-    <value>titlu</value>
-  </data>
-  <data name="&gt;&gt;titlu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;titlu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;titlu.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 244</value>
-  </data>
-  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 119</value>
-  </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="ShipPic.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1355,42 +1190,6 @@
         QmCC
 </value>
   </data>
-  <data name="ShipPic.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 63</value>
-  </data>
-  <data name="ShipPic.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="ShipPic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 128</value>
-  </data>
-  <data name="ShipPic.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="ShipPic.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;ShipPic.Name" xml:space="preserve">
-    <value>ShipPic</value>
-  </data>
-  <data name="&gt;&gt;ShipPic.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ShipPic.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ShipPic.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/7gAOQWRvYmUAZAAAAAAB/9sAQwAGBAQEBQQGBQUGCQYFBgkLCAYG
@@ -1707,12 +1506,6 @@
         gaIIIIIEiBoggggikEVii6ZJ6V9JH0EDVI5zn7irXRBAkQNEc5z9dMUgj0JJJJrH00+pFXWKQQNEEEEC
         RA6xSPWv9VNZJ9R0ggij5zn9Ug5zn+SKjI+jZBH8QqofQvqGOi9H/9k=
 </value>
-  </data>
-  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>658, 410</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4680,20 +4473,5 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAAf+AAAD/AAAAfgAAAA
         AAAAAAAAAAAAAAAAAAAAgAEAAIABAACAAQAAwAMAAOAHAAD//wAA//8AAA==
 </value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Minigames</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MiniGames</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

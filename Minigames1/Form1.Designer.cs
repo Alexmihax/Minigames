@@ -48,95 +48,60 @@ namespace Minigames1
             // 
             this.MinePic.BackColor = System.Drawing.Color.Transparent;
             this.MinePic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MinePic.Image = ((System.Drawing.Image)(resources.GetObject("MinePic.Image")));
-            this.MinePic.Location = new System.Drawing.Point(94, 63);
-            this.MinePic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            resources.ApplyResources(this.MinePic, "MinePic");
             this.MinePic.Name = "MinePic";
-            this.MinePic.Size = new System.Drawing.Size(144, 128);
-            this.MinePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.MinePic.TabIndex = 1;
             this.MinePic.TabStop = false;
             this.MinePic.Click += new System.EventHandler(this.MinePic_Click);
             // 
             // ticTacToe
             // 
             this.ticTacToe.BackColor = System.Drawing.Color.Transparent;
-            this.ticTacToe.Location = new System.Drawing.Point(408, 244);
-            this.ticTacToe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            resources.ApplyResources(this.ticTacToe, "ticTacToe");
             this.ticTacToe.Name = "ticTacToe";
-            this.ticTacToe.Size = new System.Drawing.Size(140, 119);
-            this.ticTacToe.TabIndex = 4;
             this.ticTacToe.TabStop = false;
             // 
             // mineSweeper
             // 
-            this.mineSweeper.AutoSize = true;
+            resources.ApplyResources(this.mineSweeper, "mineSweeper");
             this.mineSweeper.BackColor = System.Drawing.Color.Transparent;
-            this.mineSweeper.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
             this.mineSweeper.ForeColor = System.Drawing.Color.AliceBlue;
-            this.mineSweeper.Location = new System.Drawing.Point(103, 178);
             this.mineSweeper.Name = "mineSweeper";
-            this.mineSweeper.Size = new System.Drawing.Size(123, 23);
-            this.mineSweeper.TabIndex = 5;
-            this.mineSweeper.Text = "Minesweeper\r\n";
             // 
             // battleShips
             // 
-            this.battleShips.AutoSize = true;
+            resources.ApplyResources(this.battleShips, "battleShips");
             this.battleShips.BackColor = System.Drawing.Color.Transparent;
-            this.battleShips.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
             this.battleShips.ForeColor = System.Drawing.Color.AliceBlue;
-            this.battleShips.Location = new System.Drawing.Point(427, 178);
             this.battleShips.Name = "battleShips";
-            this.battleShips.Size = new System.Drawing.Size(103, 23);
-            this.battleShips.TabIndex = 6;
-            this.battleShips.Text = "Battleships";
             // 
             // titlu
             // 
-            this.titlu.AutoSize = true;
+            resources.ApplyResources(this.titlu, "titlu");
             this.titlu.BackColor = System.Drawing.Color.Transparent;
-            this.titlu.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
             this.titlu.ForeColor = System.Drawing.Color.AliceBlue;
-            this.titlu.Location = new System.Drawing.Point(134, 9);
             this.titlu.Name = "titlu";
-            this.titlu.Size = new System.Drawing.Size(396, 23);
-            this.titlu.TabIndex = 7;
-            this.titlu.Text = "Apasati pe jocul pe care doriti sa il deschideti!";
-            this.titlu.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(94, 244);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 119);
-            this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
             // ShipPic
             // 
             this.ShipPic.BackColor = System.Drawing.Color.Transparent;
             this.ShipPic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ShipPic.Image = ((System.Drawing.Image)(resources.GetObject("ShipPic.Image")));
-            this.ShipPic.Location = new System.Drawing.Point(408, 63);
-            this.ShipPic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            resources.ApplyResources(this.ShipPic, "ShipPic");
             this.ShipPic.Name = "ShipPic";
-            this.ShipPic.Size = new System.Drawing.Size(140, 128);
-            this.ShipPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ShipPic.TabIndex = 3;
             this.ShipPic.TabStop = false;
             this.ShipPic.Click += new System.EventHandler(this.ShipPic_Click);
             // 
             // MiniGames
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(658, 410);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.titlu);
             this.Controls.Add(this.battleShips);
@@ -144,10 +109,9 @@ namespace Minigames1
             this.Controls.Add(this.ShipPic);
             this.Controls.Add(this.ticTacToe);
             this.Controls.Add(this.MinePic);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MiniGames";
-            this.Text = "Minigames";
             ((System.ComponentModel.ISupportInitialize)(this.MinePic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ticTacToe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

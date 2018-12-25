@@ -70,7 +70,7 @@ namespace Minigames1
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(131, 15);
+            this.label1.Location = new System.Drawing.Point(121, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 31);
             this.label1.TabIndex = 9;
@@ -82,7 +82,7 @@ namespace Minigames1
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(474, 15);
+            this.label2.Location = new System.Drawing.Point(483, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 31);
             this.label2.TabIndex = 10;
@@ -125,6 +125,7 @@ namespace Minigames1
             this.Controls.Add(this.bombsCounter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Minesweeper";
             this.Text = "Minesweeper";
             ((System.ComponentModel.ISupportInitialize)(this.backButton)).EndInit();

@@ -22,6 +22,7 @@ namespace Minigames1
             this.Hide();
             var form1 = new MiniGames();
             form1.Closed += (s, args) => this.Close();
+            form1.StartPosition = FormStartPosition.CenterScreen;
             form1.Show();
         }
 
@@ -45,6 +46,7 @@ namespace Minigames1
             this.Hide();
             var form4 = new Minesweeper();
             form4.Closed += (s, args) => this.Close();
+            form4.StartPosition = FormStartPosition.CenterScreen;
             form4.Show();
         }
         private void How_Click(object sender, EventArgs e)

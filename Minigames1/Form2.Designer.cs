@@ -110,7 +110,7 @@
             this.usor.Name = "usor";
             this.usor.Size = new System.Drawing.Size(29, 13);
             this.usor.TabIndex = 9;
-            this.usor.Tag = "Usor";
+            this.usor.Tag = "Ușor";
             this.usor.Text = "Usor";
             // 
             // mediu
@@ -157,7 +157,7 @@
             this.latimeN.Name = "latimeN";
             this.latimeN.Size = new System.Drawing.Size(70, 23);
             this.latimeN.TabIndex = 14;
-            this.latimeN.Text = "Latime";
+            this.latimeN.Text = "Lațime";
             this.latimeN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lungimeN
@@ -176,22 +176,24 @@
             // latime
             // 
             this.latime.Location = new System.Drawing.Point(358, 307);
+            this.latime.MaxLength = 3;
             this.latime.Name = "latime";
             this.latime.Size = new System.Drawing.Size(66, 20);
             this.latime.TabIndex = 16;
-            this.latime.Text = "Alegeti!";
-            this.latime.TextChanged += new System.EventHandler(this.Latime_Enter);
+            this.latime.Text = "Alegeți!";
             this.latime.Click += new System.EventHandler(this.Latime_Enter);
+            this.latime.TextChanged += new System.EventHandler(this.Latime_Enter);
             // 
             // mine
             // 
             this.mine.Location = new System.Drawing.Point(536, 307);
+            this.mine.MaxLength = 3;
             this.mine.Name = "mine";
             this.mine.Size = new System.Drawing.Size(66, 20);
             this.mine.TabIndex = 17;
-            this.mine.Text = "Alegeti!";
-            this.mine.TextChanged += new System.EventHandler(this.Mine_Enter);
+            this.mine.Text = "Alegeți!";
             this.mine.Click += new System.EventHandler(this.Mine_Enter);
+            this.mine.TextChanged += new System.EventHandler(this.Mine_Enter);
             // 
             // quitButton
             // 
@@ -220,12 +222,13 @@
             // lungime
             // 
             this.lungime.Location = new System.Drawing.Point(448, 307);
+            this.lungime.MaxLength = 3;
             this.lungime.Name = "lungime";
             this.lungime.Size = new System.Drawing.Size(66, 20);
             this.lungime.TabIndex = 19;
-            this.lungime.Text = "Alegeti!";
-            this.lungime.TextChanged += new System.EventHandler(this.Lungime_Enter);
+            this.lungime.Text = "Alegeți!";
             this.lungime.Click += new System.EventHandler(this.Lungime_Enter);
+            this.lungime.TextChanged += new System.EventHandler(this.Lungime_Enter);
             // 
             // checkBox1
             // 
@@ -261,7 +264,9 @@
             this.Controls.Add(this.nivel);
             this.Controls.Add(this.nivelDificulatate);
             this.Controls.Add(this.backButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MinesweeperSettings";
             this.Text = "Minesweeper";
             ((System.ComponentModel.ISupportInitialize)(this.backButton)).EndInit();
