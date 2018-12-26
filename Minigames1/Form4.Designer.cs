@@ -33,8 +33,8 @@ namespace Minigames1
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Minesweeper));
             this.flagsCounter = new System.Windows.Forms.Label();
             this.timeCounter = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.bombs = new System.Windows.Forms.Label();
+            this.time = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.backButton)).BeginInit();
@@ -46,8 +46,8 @@ namespace Minigames1
             this.flagsCounter.BackColor = System.Drawing.Color.Black;
             this.flagsCounter.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.flagsCounter.ForeColor = System.Drawing.Color.Red;
-            this.flagsCounter.Location = new System.Drawing.Point(69, 15);
-            this.flagsCounter.Name = "bombsCounter";
+            this.flagsCounter.Location = new System.Drawing.Point(49, 15);
+            this.flagsCounter.Name = "flagsCounter";
             this.flagsCounter.Size = new System.Drawing.Size(56, 31);
             this.flagsCounter.TabIndex = 7;
             this.flagsCounter.Text = "000";
@@ -58,44 +58,44 @@ namespace Minigames1
             this.timeCounter.BackColor = System.Drawing.Color.Black;
             this.timeCounter.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.timeCounter.ForeColor = System.Drawing.Color.Red;
-            this.timeCounter.Location = new System.Drawing.Point(554, 15);
+            this.timeCounter.Location = new System.Drawing.Point(321, 15);
             this.timeCounter.Name = "timeCounter";
             this.timeCounter.Size = new System.Drawing.Size(56, 31);
             this.timeCounter.TabIndex = 8;
             this.timeCounter.Text = "000";
             // 
-            // label1
+            // bombs
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(121, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 31);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Flags";
+            this.bombs.AutoSize = true;
+            this.bombs.BackColor = System.Drawing.Color.Black;
+            this.bombs.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.bombs.ForeColor = System.Drawing.Color.Red;
+            this.bombs.Location = new System.Drawing.Point(102, 15);
+            this.bombs.Name = "bombs";
+            this.bombs.Size = new System.Drawing.Size(94, 31);
+            this.bombs.TabIndex = 9;
+            this.bombs.Text = "Bombs";
             // 
-            // label2
+            // time
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Black;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(483, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 31);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Time";
+            this.time.AutoSize = true;
+            this.time.BackColor = System.Drawing.Color.Black;
+            this.time.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.time.ForeColor = System.Drawing.Color.Red;
+            this.time.Location = new System.Drawing.Point(252, 15);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(74, 31);
+            this.time.TabIndex = 10;
+            this.time.Text = "Time";
             // 
             // backButton
             // 
             this.backButton.BackColor = System.Drawing.Color.Transparent;
             this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
-            this.backButton.Location = new System.Drawing.Point(12, 15);
+            this.backButton.Location = new System.Drawing.Point(1, 8);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(51, 31);
+            this.backButton.Size = new System.Drawing.Size(51, 38);
             this.backButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.backButton.TabIndex = 11;
             this.backButton.TabStop = false;
@@ -104,7 +104,7 @@ namespace Minigames1
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(323, 12);
+            this.button1.Location = new System.Drawing.Point(202, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(44, 41);
             this.button1.TabIndex = 12;
@@ -115,12 +115,12 @@ namespace Minigames1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(675, 410);
+            this.BackgroundImage = global::Minigames1.Properties.Resources.background;
+            this.ClientSize = new System.Drawing.Size(418, 408);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.backButton);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.time);
+            this.Controls.Add(this.bombs);
             this.Controls.Add(this.timeCounter);
             this.Controls.Add(this.flagsCounter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -137,8 +137,8 @@ namespace Minigames1
         #endregion
         private System.Windows.Forms.Label flagsCounter;
         private System.Windows.Forms.Label timeCounter;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label bombs;
+        private System.Windows.Forms.Label time;
         private System.Windows.Forms.PictureBox backButton;
         private System.Windows.Forms.Button button1;
     }

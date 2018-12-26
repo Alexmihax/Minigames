@@ -28,16 +28,12 @@ namespace Minigames1
         int[] dy = { 0, 1, 0, -1, 1, -1, 1, -1 };
 
         //Time Counter
-        int seconds = 0;
-        Timer timer = new Timer
-        {
-            Interval = 1000
-        };
+        Timer timer;
 
         //Game Variables
         int mines;
         int flag_value = 10;
-        int flags;  
+        int flags;
 
         //Button Aspect
         int button_size = 20;
@@ -49,7 +45,8 @@ namespace Minigames1
 
 
         public Minesweeper()
-        {   switch (MinesweeperSettings.custom)
+        {
+            switch (MinesweeperSettings.custom)
             {
                 case true:
                     {
@@ -118,49 +115,49 @@ namespace Minigames1
                 btn_state[x, y] = saved_btn_state[x, y];
 
             if (gameover)
-                timeCounter.Text = seconds.ToString().PadLeft(3, '0');
+                timer.Enabled = false;
 
             switch (btn_state[x, y]) //Switches Button Image
             {
                 case 0:
-                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources._0;
+                    btn[x, y].BackgroundImage = Properties.Resources._0;
                     EmptySpace(x, y);
                     break;
 
                 case 1:
-                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources._1;
+                    btn[x, y].BackgroundImage = Properties.Resources._1;
                     break;
 
                 case 2:
-                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources._2;
+                    btn[x, y].BackgroundImage = Properties.Resources._2;
                     break;
 
                 case 3:
-                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources._3;
+                    btn[x, y].BackgroundImage = Properties.Resources._3;
                     break;
 
                 case 4:
-                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources._4;
+                    btn[x, y].BackgroundImage = Properties.Resources._4;
                     break;
 
                 case 5:
-                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources._5;
+                    btn[x, y].BackgroundImage = Properties.Resources._5;
                     break;
 
                 case 6:
-                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources._6;
+                    btn[x, y].BackgroundImage = Properties.Resources._6;
                     break;
 
                 case 7:
-                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources._7;
+                    btn[x, y].BackgroundImage = Properties.Resources._7;
                     break;
 
                 case 8:
-                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources._8;
+                    btn[x, y].BackgroundImage = Properties.Resources._8;
                     break;
 
                 case -1:
-                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources.bomb;
+                    btn[x, y].BackgroundImage = Properties.Resources.bomb;
                     if (gameover != true)
                         GameOver();
                     break;
@@ -186,7 +183,7 @@ namespace Minigames1
 
                     if (pointInBounds(new_dx, new_dy))
 
-                            Button_Image(new_dx, new_dy);
+                        Button_Image(new_dx, new_dy);
                 }
             }
         }
@@ -234,7 +231,7 @@ namespace Minigames1
             MessageBox.Show("Congratulations, You WON!");
         }
 
-        void Click_Win_Check() //Ceck if there are still empty cells (yes -> continue, no -> player wins)
+        void Click_Win_Check() //Check if there are still empty cells (yes -> continue, no -> player wins)
         {
             int i, j;
             bool win = true;
@@ -290,13 +287,13 @@ namespace Minigames1
 
         private void Flag_Cell(object sender, MouseEventArgs e) // Function to add Flags
         {
-            if(e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 coord = ((Button)sender).Location;
                 int x = (coord.X - start_x) / button_size;
                 int y = (coord.Y - start_y) / button_size;
 
-                if(btn_state[x, y] != 10 && flags > 0)
+                if (btn_state[x, y] != 10 && flags > 0)
                 {
                     btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
                     btn[x, y].BackgroundImage = Minigames1.Properties.Resources.flagged;
@@ -324,8 +321,8 @@ namespace Minigames1
         {
             int i, j;
 
-            for(i = 1; i <= x; i++)
-                for(j = 1; j <= y; j++)
+            for (i = 1; i <= x; i++)
+                for (j = 1; j <= y; j++)
                 {
                     btn[i, j] = new Button();
                     btn[i, j].SetBounds(i * button_size + start_x, j * button_size + start_y, distance_between, distance_between);
@@ -345,24 +342,25 @@ namespace Minigames1
 
         public void OnTimeEvent(object source, EventArgs e)
         {
-            //int seconds = int.Parse(timeCounter.Text);
+            int seconds = int.Parse(timeCounter.Text);
             seconds++;
             timeCounter.Text = seconds.ToString().PadLeft(3, '0');
-        }    
-
-        private void StartTimer() // set to start when pressing the Status Button
+        }
+        public void StartTimer() // set to start when pressing the Status Button
         {
-            timer.Enabled = true;
+            timer = new Timer
+            {
+                Interval = 1000
+            };              
+            timer.Start();
             timer.Tick += new System.EventHandler(OnTimeEvent);
-
         }
         void StartGame()
         {
             flags = mines;
-            flagsCounter.Text = flags.ToString();
+            flagsCounter.Text = flags.ToString().PadLeft(3, '0');
             gameover = false;
 
-            seconds = 0;
             timeCounter.Text = "000";
             StartTimer();
 
@@ -387,6 +385,7 @@ namespace Minigames1
                     btn[i, j].BackgroundImage = null;
                     btn[i, j].Text = "";
                 }
+            timer.Stop();
         }
 
         void Matrix_Margins(int x, int y)
@@ -399,17 +398,18 @@ namespace Minigames1
         {
             Matrix_Margins(width, height);
 
-            if (firstplay)
-            {
-                StartGame();
-                firstplay = false;
-            }
-
             if (!firstplay)
             {
                 ResetGame();
                 StartGame();
             }
+
+            if (firstplay)
+            {
+                StartGame();
+                firstplay = false;
+            }           
+        
         }
     }
 }
