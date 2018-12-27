@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace Minigames1
 {
@@ -165,7 +166,7 @@ namespace Minigames1
 
         }
 
-        bool pointInBounds(int x, int y) //Check if a selected point respects the boundaries of the matrix
+        bool PointInBounds(int x, int y) //Check if a selected point respects the boundaries of the matrix
         {
             if (x < 1 || x > width || y < 1 || y > height)
                 return false;
@@ -181,7 +182,7 @@ namespace Minigames1
                     int new_dx = x + dx[i];
                     int new_dy = y + dy[i];
 
-                    if (pointInBounds(new_dx, new_dy))
+                    if (PointInBounds(new_dx, new_dy))
 
                         Button_Image(new_dx, new_dy);
                 }
@@ -222,6 +223,7 @@ namespace Minigames1
             gameover = true;
             Show_Map();
             MessageBox.Show("Game over !:(");
+           button1.Image = Properties.Resources.wonface1;
         }
 
         void WinGame()
@@ -229,6 +231,7 @@ namespace Minigames1
             gameover = true;
             Show_Map();
             MessageBox.Show("Congratulations, You WON!");
+            button1.Image = Properties.Resources.lostface1;
         }
 
         void Click_Win_Check() //Check if there are still empty cells (yes -> continue, no -> player wins)
@@ -246,12 +249,28 @@ namespace Minigames1
             if (win) WinGame();
         }
 
-        private void OnClick(object sender, EventArgs e)
+        private void OnClick(object sender, MouseEventArgs e)
         {
-
+           if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                Flag_Cell(sender);
+            }
+           if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                button1.Image = Properties.Resources.wowface1;
+            }
         }
+        
         //Ramane sa vedem cum o facem (practic dupa ce dai click trebuie sa calculeze transformarile pe matrice) 
         //Si in plus sa vada daca exista castigator
+
+        private void Button_Up(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                button1.Image = Properties.Resources.startface1;
+            }
+        }
 
         int Nearby_Mines(int x, int y) //Finds the number of adjacent mines of a cell/point
         {
@@ -262,7 +281,7 @@ namespace Minigames1
                 int new_dx = x + dx[i];
                 int new_dy = y + dy[i];
 
-                if (pointInBounds(new_dx, new_dy) && btn_state[new_dx, new_dy] == -1)
+                if (PointInBounds(new_dx, new_dy) && btn_state[new_dx, new_dy] == -1)
                     count++;
             }
 
@@ -285,10 +304,8 @@ namespace Minigames1
                 }
         }
 
-        private void Flag_Cell(object sender, MouseEventArgs e) // Function to add Flags
+        private void Flag_Cell(object sender) // Function to add Flags
         {
-            if (e.Button == MouseButtons.Right)
-            {
                 coord = ((Button)sender).Location;
                 int x = (coord.X - start_x) / button_size;
                 int y = (coord.Y - start_y) / button_size;
@@ -314,7 +331,6 @@ namespace Minigames1
                 }
 
                 flagsCounter.Text = flags.ToString();
-            }
         }
 
         void Generate_Buttons(int x, int y)
@@ -326,8 +342,8 @@ namespace Minigames1
                 {
                     btn[i, j] = new Button();
                     btn[i, j].SetBounds(i * button_size + start_x, j * button_size + start_y, distance_between, distance_between);
-                    btn[i, j].Click += new EventHandler(OnClick);
-                    btn[i, j].MouseUp += new MouseEventHandler(Flag_Cell);
+                    btn[i, j].MouseDown += new MouseEventHandler(OnClick);
+                    btn[i, j].MouseUp += new MouseEventHandler(Button_Up);
                     btn_state[i, j] = 0;
                     saved_btn_state[i, j] = 0;
                     Controls.Add(btn[i, j]);
@@ -340,13 +356,13 @@ namespace Minigames1
 
         }
 
-        public void OnTimeEvent(object source, EventArgs e)
+        public void OnTimeEvent(object source, EventArgs e) //Timer Tick
         {
             int seconds = int.Parse(timeCounter.Text);
             seconds++;
             timeCounter.Text = seconds.ToString().PadLeft(3, '0');
         }
-        public void StartTimer() // set to start when pressing the Status Button
+        public void StartTimer() // Set to start when pressing the Status Button, just for testing
         {
             timer = new Timer
             {

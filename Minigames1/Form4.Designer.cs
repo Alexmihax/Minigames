@@ -92,7 +92,7 @@ namespace Minigames1
             // 
             this.backButton.BackColor = System.Drawing.Color.Transparent;
             this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
+            this.backButton.Image = Properties.Resources.back_icon;
             this.backButton.Location = new System.Drawing.Point(1, 8);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(51, 38);
@@ -103,7 +103,7 @@ namespace Minigames1
             // 
             // button1
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Image = Properties.Resources.startface1;
             this.button1.Location = new System.Drawing.Point(202, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(44, 41);
@@ -116,7 +116,7 @@ namespace Minigames1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Minigames1.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(418, 408);
+            this.ClientSize = new System.Drawing.Size(446, 408);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.time);
