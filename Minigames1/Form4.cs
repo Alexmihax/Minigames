@@ -41,7 +41,7 @@ namespace Minigames1
         int distance_between = 20;
 
         //Table Aspect
-        int start_x, start_y;
+        int start_x = 1, start_y = 30;
         int width, height;
 
 
@@ -91,6 +91,8 @@ namespace Minigames1
             flags = mines;
 
             InitializeComponent();
+
+            StartGame();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -184,6 +186,8 @@ namespace Minigames1
 
                     if (PointInBounds(new_dx, new_dy))
 
+                        if(btn[new_dx, new_dy].Enabled = true && btn_state[new_dx, new_dy] != -1 && !gameover)
+
                         Button_Image(new_dx, new_dy);
                 }
             }
@@ -253,12 +257,30 @@ namespace Minigames1
         {
            if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                Flag_Cell(sender);
+                Flag_Cell(sender, e);
             }
+
            if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 button1.Image = Properties.Resources.wowface1;
             }
+
+            coord = ((Button)sender).Location;
+            int x = (coord.X - start_x) / button_size;
+            int y = (coord.Y - start_y) / button_size;
+
+            if(btn_state[x, y] != flag_value)
+            {
+                ((Button)sender).Enabled = false;
+                ((Button)sender).Text = "";
+
+                ((Button)sender).BackgroundImageLayout = ImageLayout.Stretch;
+            }
+
+            if (btn_state[x, y] != -1 && !gameover) Click_Win_Check();
+
+            Button_Image(x, y);
+           
         }
         
         //Ramane sa vedem cum o facem (practic dupa ce dai click trebuie sa calculeze transformarile pe matrice) 
@@ -304,13 +326,13 @@ namespace Minigames1
                 }
         }
 
-        private void Flag_Cell(object sender) // Function to add Flags
+        private void Flag_Cell(object sender, MouseEventArgs e) // Function to add Flags
         {
                 coord = ((Button)sender).Location;
                 int x = (coord.X - start_x) / button_size;
                 int y = (coord.Y - start_y) / button_size;
 
-                if (btn_state[x, y] != 10 && flags > 0)
+                if (btn_state[x, y] != flag_value && flags > 0)
                 {
                     btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
                     btn[x, y].BackgroundImage = Minigames1.Properties.Resources.flagged;
@@ -351,9 +373,35 @@ namespace Minigames1
                 }
         }
 
-        void Generate_Map(int x, int y, int m)
+        void Generate_Map(int x, int y, int m) //Adds Mines from random generated numbers of a List
         {
+            Random random = new Random();
 
+            int i, j;
+
+            List <int> coord_x = new List<int>();
+            List<int> coord_y = new List<int>();
+
+            while(mines > 0)
+            {
+                coord_x.Clear();
+                coord_y.Clear();
+
+                for(i = 1; i <= width; i++)
+                    for(j = 1; j <= height; j++)
+                    {
+                        coord_x.Add(i);
+                        coord_y.Add(j);
+                    }
+
+                int random_number = random.Next(0, coord_x.Count);
+
+                btn_state[coord_x[random_number], coord_y[random_number]] = -1;
+                saved_btn_state[coord_x[random_number], coord_y[random_number]] = -1;
+
+                mines--;
+            }
+            
         }
 
         public void OnTimeEvent(object source, EventArgs e) //Timer Tick
@@ -402,29 +450,33 @@ namespace Minigames1
                     btn[i, j].Text = "";
                 }
             timer.Stop();
+           
+            StartGame();
         }
 
         void Matrix_Margins(int x, int y)
         {
-            start_x = (width * distance_between) / 2;
-            start_y = (height * distance_between) / 2;
+            start_x = ((width+2) * distance_between) / 2;
+            start_y = ((height+2) * distance_between) / 2;
         }
 
         private void Button1_Click(object sender, EventArgs e) //A.K.A Reset Game Button
         {
             Matrix_Margins(width, height);
 
-            if (!firstplay)
-            {
-                ResetGame();
-                StartGame();
-            }
+            /* if (firstplay)
+              {
+                  StartGame();
+                  firstplay = false;
+              }
 
-            if (firstplay)
-            {
-                StartGame();
-                firstplay = false;
-            }           
+             else if (!firstplay)
+              {
+                  ResetGame();
+                  StartGame();
+              }   */
+
+            ResetGame();
         
         }
     }

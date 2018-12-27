@@ -72,9 +72,9 @@ namespace Minigames1
             this.bombs.ForeColor = System.Drawing.Color.Red;
             this.bombs.Location = new System.Drawing.Point(102, 15);
             this.bombs.Name = "bombs";
-            this.bombs.Size = new System.Drawing.Size(94, 31);
+            this.bombs.Size = new System.Drawing.Size(77, 31);
             this.bombs.TabIndex = 9;
-            this.bombs.Text = "Bombs";
+            this.bombs.Text = "Flags";
             // 
             // time
             // 
@@ -92,7 +92,7 @@ namespace Minigames1
             // 
             this.backButton.BackColor = System.Drawing.Color.Transparent;
             this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backButton.Image = Properties.Resources.back_icon;
+            this.backButton.Image = global::Minigames1.Properties.Resources.back_icon;
             this.backButton.Location = new System.Drawing.Point(1, 8);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(51, 38);
@@ -103,7 +103,7 @@ namespace Minigames1
             // 
             // button1
             // 
-            this.button1.Image = Properties.Resources.startface1;
+            this.button1.Image = global::Minigames1.Properties.Resources.startface1;
             this.button1.Location = new System.Drawing.Point(202, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(44, 41);
