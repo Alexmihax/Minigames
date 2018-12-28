@@ -273,15 +273,19 @@ namespace Minigames1
 
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                firstclick = true;
+                
                 button1.Image = Properties.Resources.wowface1;
 
                 coord = ((Button)sender).Location;
                 int x = (coord.X - start_x) / (button_size);
                 int y = (coord.Y - start_y) / (button_size);
+                if (firstclick == false)
+                {
+                    firstclick = true;
+                    Generate_Map(width, height, mines,x,y);
+                    Set_Map_Numbers(width, height);
 
-                Console.WriteLine(x);
-                Console.WriteLine(y);
+                }
                 if (btn_state[x, y] != flag_value)
                 {
                     ((Button)sender).Enabled = false;
@@ -389,7 +393,7 @@ namespace Minigames1
                 }
         }
 
-        void Generate_Map(int x, int y, int m) //Adds Mines from random generated numbers of a List
+        void Generate_Map(int x, int y, int m, int startx, int starty) //Adds Mines from random generated numbers of a List
         {
             Random random = new Random();
 
@@ -398,26 +402,25 @@ namespace Minigames1
             List<int> coord_x = new List<int>();
             List<int> coord_y = new List<int>();
 
-            coord_x.Clear();
-            coord_y.Clear();
-
+           
             while (mines > 0)
             {
-
+                coord_x.Clear();
+                coord_y.Clear();
                 for (i = 1; i <= width; i++)
                     for (j = 1; j <= height; j++)
                     {
                         coord_x.Add(i);
                         coord_y.Add(j);
                     }
-
                 int random_number = random.Next(0, coord_x.Count);
                 if (btn_state[coord_x[random_number], coord_y[random_number]] != -1)
-                {
-                    btn_state[coord_x[random_number], coord_y[random_number]] = -1;
-                    saved_btn_state[coord_x[random_number], coord_y[random_number]] = -1;
-                    mines--;
-                }
+                    {
+                        btn_state[coord_x[random_number], coord_y[random_number]] = -1;
+                        saved_btn_state[coord_x[random_number], coord_y[random_number]] = -1;
+                        mines--;
+                    } 
+                
             }
 
         }
@@ -449,8 +452,8 @@ namespace Minigames1
             if (firstplay)
                 Generate_Buttons(width, height);
 
-            Generate_Map(width, height, mines);
-            Set_Map_Numbers(width, height);
+            //Generate_Map(width, height, mines);
+            //Set_Map_Numbers(width, height);
         }
 
         void ResetGame()
@@ -470,11 +473,6 @@ namespace Minigames1
             timer.Stop();
 
             //StartGame();
-        }
-
-        private void Minesweeper_Load_1(object sender, EventArgs e)
-        {
-
         }
 
         void Matrix_Margins(int x, int y)
