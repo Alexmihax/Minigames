@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
@@ -41,7 +42,7 @@ namespace Minigames1
         int distance_between = 20;
 
         //Table Aspect
-        int start_x = 1, start_y = 30;
+        int start_x = 40, start_y = 40;
         int width, height;
 
 
@@ -111,7 +112,7 @@ namespace Minigames1
 
         void Button_Image(int x, int y)
         {
-            btn[x, y].Enabled = false;
+            //btn[x, y].Enabled = false;
             btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
 
             if (gameover && btn_state[x, y] == flag_value)
@@ -123,39 +124,48 @@ namespace Minigames1
             switch (btn_state[x, y]) //Switches Button Image
             {
                 case 0:
+                    btn[x, y].Enabled = false;
                     btn[x, y].BackgroundImage = Properties.Resources._0;
                     EmptySpace(x, y);
                     break;
 
                 case 1:
+                    btn[x, y].Enabled = false;
                     btn[x, y].BackgroundImage = Properties.Resources._1;
                     break;
 
                 case 2:
+                    btn[x, y].Enabled = false;
                     btn[x, y].BackgroundImage = Properties.Resources._2;
                     break;
 
                 case 3:
+                    btn[x, y].Enabled = false;
                     btn[x, y].BackgroundImage = Properties.Resources._3;
                     break;
 
                 case 4:
+                    btn[x, y].Enabled = false;
                     btn[x, y].BackgroundImage = Properties.Resources._4;
                     break;
 
                 case 5:
+                    btn[x, y].Enabled = false;
                     btn[x, y].BackgroundImage = Properties.Resources._5;
                     break;
 
                 case 6:
+                    btn[x, y].Enabled = false;
                     btn[x, y].BackgroundImage = Properties.Resources._6;
                     break;
 
                 case 7:
+                    btn[x, y].Enabled = false;
                     btn[x, y].BackgroundImage = Properties.Resources._7;
                     break;
 
                 case 8:
+                    btn[x, y].Enabled = false;
                     btn[x, y].BackgroundImage = Properties.Resources._8;
                     break;
 
@@ -185,10 +195,14 @@ namespace Minigames1
                     int new_dy = y + dy[i];
 
                     if (PointInBounds(new_dx, new_dy))
-
-                        if(btn[new_dx, new_dy].Enabled = true && btn_state[new_dx, new_dy] != -1 && !gameover)
-
-                        Button_Image(new_dx, new_dy);
+                    {
+                        if (btn[new_dx, new_dy].Enabled == true && btn_state[new_dx, new_dy] != -1 && !gameover)
+                        {
+                            //EmptySpace(new_dx, new_dy);
+                            Console.WriteLine("in empty space");
+                            Button_Image(new_dx, new_dy);
+                        }
+                    }
                 }
             }
         }
@@ -226,16 +240,16 @@ namespace Minigames1
         {
             gameover = true;
             Show_Map();
+            button1.Image = Properties.Resources.lostface1;
             MessageBox.Show("Game over !:(");
-           button1.Image = Properties.Resources.wonface1;
         }
 
         void WinGame()
         {
             gameover = true;
             Show_Map();
+            button1.Image = Properties.Resources.wonface1;
             MessageBox.Show("Congratulations, You WON!");
-            button1.Image = Properties.Resources.lostface1;
         }
 
         void Click_Win_Check() //Check if there are still empty cells (yes -> continue, no -> player wins)
@@ -255,39 +269,41 @@ namespace Minigames1
 
         private void OnClick(object sender, MouseEventArgs e)
         {
-           if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 Flag_Cell(sender, e);
             }
 
-           if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 button1.Image = Properties.Resources.wowface1;
+
+                coord = ((Button)sender).Location;
+                int x = (coord.X - start_x) / (button_size);
+                int y = (coord.Y - start_y) / (button_size);
+
+                Console.WriteLine(x);
+                Console.WriteLine(y);
+                if (btn_state[x, y] != flag_value)
+                {
+                    ((Button)sender).Enabled = false;
+                    ((Button)sender).Text = "";
+
+                    ((Button)sender).BackgroundImageLayout = ImageLayout.Stretch;
+                }
+
+                if (btn_state[x, y] != -1 && !gameover) Click_Win_Check();
+
+                Button_Image(x, y);
             }
-
-            coord = ((Button)sender).Location;
-            int x = (coord.X - start_x) / button_size;
-            int y = (coord.Y - start_y) / button_size;
-
-            if(btn_state[x, y] != flag_value)
-            {
-                ((Button)sender).Enabled = false;
-                ((Button)sender).Text = "";
-
-                ((Button)sender).BackgroundImageLayout = ImageLayout.Stretch;
-            }
-
-            if (btn_state[x, y] != -1 && !gameover) Click_Win_Check();
-
-            Button_Image(x, y);
-           
         }
-        
+
         //Ramane sa vedem cum o facem (practic dupa ce dai click trebuie sa calculeze transformarile pe matrice) 
         //Si in plus sa vada daca exista castigator
 
         private void Button_Up(object sender, MouseEventArgs e)
         {
+            Console.WriteLine("button up!");
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 button1.Image = Properties.Resources.startface1;
@@ -328,31 +344,32 @@ namespace Minigames1
 
         private void Flag_Cell(object sender, MouseEventArgs e) // Function to add Flags
         {
-                coord = ((Button)sender).Location;
-                int x = (coord.X - start_x) / button_size;
-                int y = (coord.Y - start_y) / button_size;
+            coord = ((Button)sender).Location;
+            int x = (coord.X - start_x) / button_size;
+            int y = (coord.Y - start_y) / button_size;
 
-                if (btn_state[x, y] != flag_value && flags > 0)
-                {
-                    btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
-                    btn[x, y].BackgroundImage = Minigames1.Properties.Resources.flagged;
+            if (btn_state[x, y] != flag_value && flags > 0)
+            {
+                btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
+                btn[x, y].BackgroundImage = Minigames1.Properties.Resources.flagged;
 
-                    btn_state[x, y] = flag_value;
+                btn_state[x, y] = flag_value;
 
-                    flags--;
-                    Flag_Win_Check();
-                }
+                flags--;
+                Flag_Win_Check();
+            }
 
-                else if (btn_state[x, y] == flag_value)
-                {
-                    btn_state[x, y] = saved_btn_state[x, y];
-                    btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
-                    btn[x, y].BackgroundImage = null;
+            else if (btn_state[x, y] == flag_value)
+            {
+                btn_state[x, y] = saved_btn_state[x, y];
+                btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
+                btn[x, y].BackgroundImage = null;
 
-                    flags++;
-                }
+                flags++;
+            }
 
-                flagsCounter.Text = flags.ToString();
+            flagsCounter.Text = flags.ToString().PadLeft(3, '0');
+
         }
 
         void Generate_Buttons(int x, int y)
@@ -362,7 +379,10 @@ namespace Minigames1
             for (i = 1; i <= x; i++)
                 for (j = 1; j <= y; j++)
                 {
-                    btn[i, j] = new Button();
+                    btn[i, j] = new Button()
+                    {
+                        Name = i + " " + j
+                    };
                     btn[i, j].SetBounds(i * button_size + start_x, j * button_size + start_y, distance_between, distance_between);
                     btn[i, j].MouseDown += new MouseEventHandler(OnClick);
                     btn[i, j].MouseUp += new MouseEventHandler(Button_Up);
@@ -379,16 +399,16 @@ namespace Minigames1
 
             int i, j;
 
-            List <int> coord_x = new List<int>();
+            List<int> coord_x = new List<int>();
             List<int> coord_y = new List<int>();
 
-            while(mines > 0)
+            while (mines > 0)
             {
                 coord_x.Clear();
                 coord_y.Clear();
 
-                for(i = 1; i <= width; i++)
-                    for(j = 1; j <= height; j++)
+                for (i = 1; i <= width; i++)
+                    for (j = 1; j <= height; j++)
                     {
                         coord_x.Add(i);
                         coord_y.Add(j);
@@ -401,7 +421,7 @@ namespace Minigames1
 
                 mines--;
             }
-            
+
         }
 
         public void OnTimeEvent(object source, EventArgs e) //Timer Tick
@@ -415,7 +435,7 @@ namespace Minigames1
             timer = new Timer
             {
                 Interval = 1000
-            };              
+            };
             timer.Start();
             timer.Tick += new System.EventHandler(OnTimeEvent);
         }
@@ -450,14 +470,19 @@ namespace Minigames1
                     btn[i, j].Text = "";
                 }
             timer.Stop();
-           
-            StartGame();
+
+            //StartGame();
+        }
+
+        private void Minesweeper_Load_1(object sender, EventArgs e)
+        {
+
         }
 
         void Matrix_Margins(int x, int y)
         {
-            start_x = ((width+2) * distance_between) / 2;
-            start_y = ((height+2) * distance_between) / 2;
+            start_x = ((x) * distance_between) / 2;
+            start_y = ((y) * distance_between) / 2;
         }
 
         private void Button1_Click(object sender, EventArgs e) //A.K.A Reset Game Button
@@ -477,7 +502,7 @@ namespace Minigames1
               }   */
 
             ResetGame();
-        
+
         }
     }
 }
