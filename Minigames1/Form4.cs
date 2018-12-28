@@ -24,6 +24,7 @@ namespace Minigames1
 
         bool firstplay = true;
         bool gameover = false;
+        bool firstclick = false;
 
         //Directional Arrays on OX and OY
         int[] dx = { 1, 0, -1, 0, 1, -1, -1, 1 };
@@ -105,10 +106,6 @@ namespace Minigames1
             form2.Show();
         }
 
-        private void Minesweeper_Load(object sender, EventArgs e)
-        {
-
-        }
 
         void Button_Image(int x, int y)
         {
@@ -276,6 +273,7 @@ namespace Minigames1
 
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
+                firstclick = true;
                 button1.Image = Properties.Resources.wowface1;
 
                 coord = ((Button)sender).Location;
@@ -298,8 +296,6 @@ namespace Minigames1
             }
         }
 
-        //Ramane sa vedem cum o facem (practic dupa ce dai click trebuie sa calculeze transformarile pe matrice) 
-        //Si in plus sa vada daca exista castigator
 
         private void Button_Up(object sender, MouseEventArgs e)
         {
@@ -402,10 +398,11 @@ namespace Minigames1
             List<int> coord_x = new List<int>();
             List<int> coord_y = new List<int>();
 
+            coord_x.Clear();
+            coord_y.Clear();
+
             while (mines > 0)
             {
-                coord_x.Clear();
-                coord_y.Clear();
 
                 for (i = 1; i <= width; i++)
                     for (j = 1; j <= height; j++)
@@ -415,11 +412,12 @@ namespace Minigames1
                     }
 
                 int random_number = random.Next(0, coord_x.Count);
-
-                btn_state[coord_x[random_number], coord_y[random_number]] = -1;
-                saved_btn_state[coord_x[random_number], coord_y[random_number]] = -1;
-
-                mines--;
+                if (btn_state[coord_x[random_number], coord_y[random_number]] != -1)
+                {
+                    btn_state[coord_x[random_number], coord_y[random_number]] = -1;
+                    saved_btn_state[coord_x[random_number], coord_y[random_number]] = -1;
+                    mines--;
+                }
             }
 
         }
@@ -488,19 +486,6 @@ namespace Minigames1
         private void Button1_Click(object sender, EventArgs e) //A.K.A Reset Game Button
         {
             Matrix_Margins(width, height);
-
-            /* if (firstplay)
-              {
-                  StartGame();
-                  firstplay = false;
-              }
-
-             else if (!firstplay)
-              {
-                  ResetGame();
-                  StartGame();
-              }   */
-
             ResetGame();
 
         }
