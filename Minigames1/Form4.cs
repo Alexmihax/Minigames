@@ -43,7 +43,7 @@ namespace Minigames1
         int distance_between = 20;
 
         //Table Aspect
-        int start_x, start_y ;
+        int start_x, start_y=40 ;
         int width, height;
 
 
@@ -68,7 +68,7 @@ namespace Minigames1
                                     height = 9;
                                     mines = 10;
                                     start_x = 20;
-                                    start_y = 40;
+                                    
                                 }
                                 break;
 
@@ -77,8 +77,7 @@ namespace Minigames1
                                     width = 16;
                                     height = 16;
                                     mines = 40;
-                                    start_x = 50;
-                                    start_y = 40;
+                                    start_x = 20;
                                 }
                                 break;
 
@@ -88,7 +87,6 @@ namespace Minigames1
                                     height = 16;
                                     mines = 99;
                                     start_x = 15;
-                                    start_y = 40;
                                 }
                                 break;
                         }
@@ -96,8 +94,19 @@ namespace Minigames1
                     break;
             }
             InitializeComponent();
-            //button1.Location = new System.Drawing.Point(this.Width/2-40);
-            //this.Width = width * 20 + 20;
+            if (width > 16)
+            {
+                start_x = 15;
+                this.Width = (button_size + 1) * width +60;
+                button1.Location = new Point((this.Width / 2 - 22), 8);
+                timeCounter.Location = new Point((this.Width - 127), 15);
+                time.Location = new Point((this.Width - 195), 15);
+            }
+            else
+            {
+                start_x = ((this.Width - ((button_size)  * width)-54)/2);
+            }
+            this.Height = (button_size * height) + 120;
             nrmine = mines;
             flags = mines;            
             StartGame();
@@ -135,8 +144,6 @@ namespace Minigames1
                 case 1:
                     btn[x, y].Enabled = false;
                     btn[x, y].BackgroundImage = Properties.Resources._1;
-                    Console.WriteLine("Button state");
-                    Console.WriteLine(1);
                     break;
 
                 case 2:
@@ -286,7 +293,7 @@ namespace Minigames1
 
         private void Button_Up(object sender, MouseEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            if (e.Button == System.Windows.Forms.MouseButtons.Left && !gameover)
             {
                 button1.Image = Properties.Resources.startface1;
                 coord = ((Button)sender).Location;
@@ -294,7 +301,6 @@ namespace Minigames1
                 int y = (coord.Y - start_y) / (button_size);
                 if (firstclick == false)
                 {
-                    Console.WriteLine("firsclick");
                     firstclick = true;
                     Generate_Map(width, height, mines, x, y);
                     Set_Map_Numbers(width, height);
@@ -348,8 +354,6 @@ namespace Minigames1
             coord = ((Button)sender).Location;
             int x = (coord.X - start_x) / button_size;
             int y = (coord.Y - start_y) / button_size;
-            Console.WriteLine(flags);
-            Console.WriteLine(btn_state[x, y]);
             if (btn_state[x, y] != flag_value && flags > 0)
             {
                 btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;

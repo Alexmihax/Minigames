@@ -58,7 +58,7 @@ namespace Minigames1
             this.timeCounter.BackColor = System.Drawing.Color.Black;
             this.timeCounter.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.timeCounter.ForeColor = System.Drawing.Color.Red;
-            this.timeCounter.Location = new System.Drawing.Point(312, 15);
+            this.timeCounter.Location = new System.Drawing.Point(313, 15);
             this.timeCounter.Name = "timeCounter";
             this.timeCounter.Size = new System.Drawing.Size(56, 31);
             this.timeCounter.TabIndex = 8;
@@ -116,7 +116,7 @@ namespace Minigames1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Minigames1.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(405, 461);
+            this.ClientSize = new System.Drawing.Size(424, 401);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.time);
