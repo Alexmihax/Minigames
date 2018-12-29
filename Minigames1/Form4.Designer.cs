@@ -46,7 +46,7 @@ namespace Minigames1
             this.flagsCounter.BackColor = System.Drawing.Color.Black;
             this.flagsCounter.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.flagsCounter.ForeColor = System.Drawing.Color.Red;
-            this.flagsCounter.Location = new System.Drawing.Point(49, 15);
+            this.flagsCounter.Location = new System.Drawing.Point(59, 15);
             this.flagsCounter.Name = "flagsCounter";
             this.flagsCounter.Size = new System.Drawing.Size(56, 31);
             this.flagsCounter.TabIndex = 7;
@@ -58,7 +58,7 @@ namespace Minigames1
             this.timeCounter.BackColor = System.Drawing.Color.Black;
             this.timeCounter.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.timeCounter.ForeColor = System.Drawing.Color.Red;
-            this.timeCounter.Location = new System.Drawing.Point(321, 15);
+            this.timeCounter.Location = new System.Drawing.Point(312, 15);
             this.timeCounter.Name = "timeCounter";
             this.timeCounter.Size = new System.Drawing.Size(56, 31);
             this.timeCounter.TabIndex = 8;
@@ -70,7 +70,7 @@ namespace Minigames1
             this.bombs.BackColor = System.Drawing.Color.Black;
             this.bombs.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.bombs.ForeColor = System.Drawing.Color.Red;
-            this.bombs.Location = new System.Drawing.Point(102, 15);
+            this.bombs.Location = new System.Drawing.Point(112, 15);
             this.bombs.Name = "bombs";
             this.bombs.Size = new System.Drawing.Size(77, 31);
             this.bombs.TabIndex = 9;
@@ -82,7 +82,7 @@ namespace Minigames1
             this.time.BackColor = System.Drawing.Color.Black;
             this.time.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
             this.time.ForeColor = System.Drawing.Color.Red;
-            this.time.Location = new System.Drawing.Point(252, 15);
+            this.time.Location = new System.Drawing.Point(245, 15);
             this.time.Name = "time";
             this.time.Size = new System.Drawing.Size(74, 31);
             this.time.TabIndex = 10;
@@ -93,7 +93,7 @@ namespace Minigames1
             this.backButton.BackColor = System.Drawing.Color.Transparent;
             this.backButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backButton.Image = global::Minigames1.Properties.Resources.back_icon;
-            this.backButton.Location = new System.Drawing.Point(1, 8);
+            this.backButton.Location = new System.Drawing.Point(2, 8);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(51, 38);
             this.backButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -104,9 +104,9 @@ namespace Minigames1
             // button1
             // 
             this.button1.Image = global::Minigames1.Properties.Resources.startface1;
-            this.button1.Location = new System.Drawing.Point(202, 8);
+            this.button1.Location = new System.Drawing.Point(195, 8);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 41);
+            this.button1.Size = new System.Drawing.Size(44, 44);
             this.button1.TabIndex = 12;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
@@ -116,7 +116,7 @@ namespace Minigames1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Minigames1.Properties.Resources.background;
-            this.ClientSize = new System.Drawing.Size(446, 408);
+            this.ClientSize = new System.Drawing.Size(405, 461);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.time);

@@ -22,6 +22,7 @@ namespace Minigames1
 
         Point coord;
 
+        bool firstplay = true;
         bool gameover = false;
         bool firstclick = false;
 
@@ -42,7 +43,7 @@ namespace Minigames1
         int distance_between = 20;
 
         //Table Aspect
-        int start_x = 40, start_y = 40;
+        int start_x, start_y ;
         int width, height;
 
 
@@ -66,6 +67,8 @@ namespace Minigames1
                                     width = 9;
                                     height = 9;
                                     mines = 10;
+                                    start_x = 20;
+                                    start_y = 40;
                                 }
                                 break;
 
@@ -74,23 +77,29 @@ namespace Minigames1
                                     width = 16;
                                     height = 16;
                                     mines = 40;
+                                    start_x = 50;
+                                    start_y = 40;
                                 }
                                 break;
 
                             case 3:
                                 {
-                                    width = 16;
-                                    height = 30;
+                                    width = 30;
+                                    height = 16;
                                     mines = 99;
+                                    start_x = 15;
+                                    start_y = 40;
                                 }
                                 break;
                         }
                     }
                     break;
             }
-            nrmine = mines;
-            flags = mines;
             InitializeComponent();
+            //button1.Location = new System.Drawing.Point(this.Width/2-40);
+            //this.Width = width * 20 + 20;
+            nrmine = mines;
+            flags = mines;            
             StartGame();
         }
 
@@ -126,6 +135,8 @@ namespace Minigames1
                 case 1:
                     btn[x, y].Enabled = false;
                     btn[x, y].BackgroundImage = Properties.Resources._1;
+                    Console.WriteLine("Button state");
+                    Console.WriteLine(1);
                     break;
 
                 case 2:
@@ -206,7 +217,7 @@ namespace Minigames1
             for (i = 1; i <= width; i++)
                 for (j = 1; j <= height; j++)
                 {
-                    if (btn[i, j].Enabled == true)
+                    if (btn_state[i, j] == -1)
                         Button_Image(i, j);
                 }
 
@@ -263,7 +274,7 @@ namespace Minigames1
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                Flag_Cell(sender, e);
+                if(firstclick)Flag_Cell(sender, e);
             }
 
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
@@ -283,22 +294,19 @@ namespace Minigames1
                 int y = (coord.Y - start_y) / (button_size);
                 if (firstclick == false)
                 {
+                    Console.WriteLine("firsclick");
                     firstclick = true;
                     Generate_Map(width, height, mines, x, y);
                     Set_Map_Numbers(width, height);
                     StartTimer();
-
                 }
                 if (btn_state[x, y] != flag_value)
                 {
                     ((Button)sender).Enabled = false;
                     ((Button)sender).Text = "";
-
-                    ((Button)sender).BackgroundImageLayout = ImageLayout.Stretch;
                 }
 
                 if (btn_state[x, y] != -1 && !gameover) Click_Win_Check();
-
                 Button_Image(x, y);
             }
         }
@@ -340,7 +348,8 @@ namespace Minigames1
             coord = ((Button)sender).Location;
             int x = (coord.X - start_x) / button_size;
             int y = (coord.Y - start_y) / button_size;
-
+            Console.WriteLine(flags);
+            Console.WriteLine(btn_state[x, y]);
             if (btn_state[x, y] != flag_value && flags > 0)
             {
                 btn[x, y].BackgroundImageLayout = ImageLayout.Stretch;
@@ -378,6 +387,7 @@ namespace Minigames1
                     btn[i, j].MouseUp += new MouseEventHandler(Button_Up);
                     btn_state[i, j] = 0;
                     saved_btn_state[i, j] = 0;
+
                     Controls.Add(btn[i, j]);
 
                 }
@@ -435,10 +445,15 @@ namespace Minigames1
         {
             flags = mines;
             flagsCounter.Text = flags.ToString().PadLeft(3, '0');
+            button1.Image = Properties.Resources.startface1; 
             gameover = false;
             timeCounter.Text = "000";
-            firstclick = false;            
-            Generate_Buttons(width, height);  
+            firstclick = false;
+            if (firstplay)
+            {
+                Generate_Buttons(width, height);
+                firstplay = false;
+            }
  
         }
 
@@ -455,8 +470,8 @@ namespace Minigames1
                     btn[i, j].BackgroundImage = null;
                     btn[i, j].Text = "";
                 }
+            timer.Enabled = false;
             mines = nrmine;
-            timer.Stop();
             StartGame();
         }
         private void Button1_Click(object sender, EventArgs e) //A.K.A Reset Game Button
