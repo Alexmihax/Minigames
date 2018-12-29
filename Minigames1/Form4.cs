@@ -22,7 +22,6 @@ namespace Minigames1
 
         Point coord;
 
-        bool firstplay = true;
         bool gameover = false;
         bool firstclick = false;
 
@@ -34,7 +33,7 @@ namespace Minigames1
         Timer timer;
 
         //Game Variables
-        int mines;
+        int mines,nrmine;
         int flag_value = 10;
         int flags;
 
@@ -89,11 +88,9 @@ namespace Minigames1
                     }
                     break;
             }
-
+            nrmine = mines;
             flags = mines;
-
             InitializeComponent();
-
             StartGame();
         }
 
@@ -194,9 +191,7 @@ namespace Minigames1
                     if (PointInBounds(new_dx, new_dy))
                     {
                         if (btn[new_dx, new_dy].Enabled == true && btn_state[new_dx, new_dy] != -1 && !gameover)
-                        {
-                            //EmptySpace(new_dx, new_dy);
-                            Console.WriteLine("in empty space");
+                        { 
                             Button_Image(new_dx, new_dy);
                         }
                     }
@@ -284,6 +279,7 @@ namespace Minigames1
                     firstclick = true;
                     Generate_Map(width, height, mines,x,y);
                     Set_Map_Numbers(width, height);
+                    StartTimer();
 
                 }
                 if (btn_state[x, y] != flag_value)
@@ -379,10 +375,7 @@ namespace Minigames1
             for (i = 1; i <= x; i++)
                 for (j = 1; j <= y; j++)
                 {
-                    btn[i, j] = new Button()
-                    {
-                        Name = i + " " + j
-                    };
+                    btn[i, j] = new Button();                    
                     btn[i, j].SetBounds(i * button_size + start_x, j * button_size + start_y, distance_between, distance_between);
                     btn[i, j].MouseDown += new MouseEventHandler(OnClick);
                     btn[i, j].MouseUp += new MouseEventHandler(Button_Up);
@@ -402,25 +395,26 @@ namespace Minigames1
             List<int> coord_x = new List<int>();
             List<int> coord_y = new List<int>();
 
-           
-            while (mines > 0)
-            {
-                coord_x.Clear();
-                coord_y.Clear();
-                for (i = 1; i <= width; i++)
-                    for (j = 1; j <= height; j++)
+            coord_x.Clear();
+            coord_y.Clear();
+            for (i = 1; i <= width; i++)
+                for (j = 1; j <= height; j++)
+                {
+                    if (i!= startx || j!= starty)
                     {
                         coord_x.Add(i);
                         coord_y.Add(j);
                     }
+                }
+            while (mines > 0)
+            { 
                 int random_number = random.Next(0, coord_x.Count);
-                if (btn_state[coord_x[random_number], coord_y[random_number]] != -1)
+                if  (btn_state[coord_x[random_number], coord_y[random_number]] != -1)
                     {
                         btn_state[coord_x[random_number], coord_y[random_number]] = -1;
                         saved_btn_state[coord_x[random_number], coord_y[random_number]] = -1;
                         mines--;
-                    } 
-                
+                    }                 
             }
 
         }
@@ -445,15 +439,10 @@ namespace Minigames1
             flags = mines;
             flagsCounter.Text = flags.ToString().PadLeft(3, '0');
             gameover = false;
-
             timeCounter.Text = "000";
-            StartTimer();
-
-            if (firstplay)
-                Generate_Buttons(width, height);
-
-            //Generate_Map(width, height, mines);
-            //Set_Map_Numbers(width, height);
+            firstclick = false;            
+            Generate_Buttons(width, height);  
+ 
         }
 
         void ResetGame()
@@ -466,26 +455,16 @@ namespace Minigames1
                     btn[i, j].Enabled = true;
                     btn_state[i, j] = 0;
                     saved_btn_state[i, j] = 0;
-
                     btn[i, j].BackgroundImage = null;
                     btn[i, j].Text = "";
                 }
+            mines = nrmine;
             timer.Stop();
-
-            //StartGame();
+            StartGame();
         }
-
-        void Matrix_Margins(int x, int y)
-        {
-            start_x = ((x) * distance_between) / 2;
-            start_y = ((y) * distance_between) / 2;
-        }
-
         private void Button1_Click(object sender, EventArgs e) //A.K.A Reset Game Button
-        {
-            Matrix_Margins(width, height);
+        {            
             ResetGame();
-
         }
     }
 }
