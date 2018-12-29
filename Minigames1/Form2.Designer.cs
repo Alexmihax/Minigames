@@ -36,7 +36,6 @@
             this.usor = new System.Windows.Forms.Label();
             this.mediu = new System.Windows.Forms.Label();
             this.greu = new System.Windows.Forms.Label();
-            this.how = new System.Windows.Forms.Button();
             this.latimeN = new System.Windows.Forms.Label();
             this.lungimeN = new System.Windows.Forms.Label();
             this.latime = new System.Windows.Forms.TextBox();
@@ -68,18 +67,19 @@
             this.nivel.BackColor = System.Drawing.Color.Transparent;
             this.nivel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
             this.nivel.ForeColor = System.Drawing.Color.AliceBlue;
-            this.nivel.Location = new System.Drawing.Point(394, 90);
+            this.nivel.Location = new System.Drawing.Point(406, 90);
             this.nivel.Name = "nivel";
-            this.nivel.Size = new System.Drawing.Size(169, 23);
+            this.nivel.Size = new System.Drawing.Size(142, 23);
             this.nivel.TabIndex = 4;
-            this.nivel.Text = "Nivel de dificultate";
+            this.nivel.Text = "Difficulty Level";
             this.nivel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nivel.Click += new System.EventHandler(this.nivel_Click);
             // 
             // startButton
             // 
             this.startButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.startButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.startButton.Location = new System.Drawing.Point(87, 99);
+            this.startButton.Location = new System.Drawing.Point(87, 134);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(142, 27);
             this.startButton.TabIndex = 7;
@@ -108,10 +108,10 @@
             this.usor.BackColor = System.Drawing.Color.Gray;
             this.usor.Location = new System.Drawing.Point(395, 161);
             this.usor.Name = "usor";
-            this.usor.Size = new System.Drawing.Size(29, 13);
+            this.usor.Size = new System.Drawing.Size(30, 13);
             this.usor.TabIndex = 9;
             this.usor.Tag = "Ușor";
-            this.usor.Text = "Usor";
+            this.usor.Text = "Easy";
             // 
             // mediu
             // 
@@ -119,10 +119,10 @@
             this.mediu.BackColor = System.Drawing.Color.Gray;
             this.mediu.Location = new System.Drawing.Point(459, 161);
             this.mediu.Name = "mediu";
-            this.mediu.Size = new System.Drawing.Size(36, 13);
+            this.mediu.Size = new System.Drawing.Size(44, 13);
             this.mediu.TabIndex = 10;
             this.mediu.Tag = "Mediu";
-            this.mediu.Text = "Mediu";
+            this.mediu.Text = "Medium";
             // 
             // greu
             // 
@@ -133,19 +133,7 @@
             this.greu.Size = new System.Drawing.Size(30, 13);
             this.greu.TabIndex = 11;
             this.greu.Tag = "Greu";
-            this.greu.Text = "Greu";
-            // 
-            // how
-            // 
-            this.how.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.how.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.how.Location = new System.Drawing.Point(87, 165);
-            this.how.Name = "how";
-            this.how.Size = new System.Drawing.Size(142, 27);
-            this.how.TabIndex = 12;
-            this.how.Text = "Cum se joaca?";
-            this.how.UseVisualStyleBackColor = true;
-            this.how.Click += new System.EventHandler(this.How_Click);
+            this.greu.Text = "Hard";
             // 
             // latimeN
             // 
@@ -155,9 +143,9 @@
             this.latimeN.ForeColor = System.Drawing.Color.AliceBlue;
             this.latimeN.Location = new System.Drawing.Point(354, 281);
             this.latimeN.Name = "latimeN";
-            this.latimeN.Size = new System.Drawing.Size(70, 23);
+            this.latimeN.Size = new System.Drawing.Size(61, 23);
             this.latimeN.TabIndex = 14;
-            this.latimeN.Text = "Lațime";
+            this.latimeN.Text = "Width";
             this.latimeN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lungimeN
@@ -168,9 +156,9 @@
             this.lungimeN.ForeColor = System.Drawing.Color.AliceBlue;
             this.lungimeN.Location = new System.Drawing.Point(444, 281);
             this.lungimeN.Name = "lungimeN";
-            this.lungimeN.Size = new System.Drawing.Size(83, 23);
+            this.lungimeN.Size = new System.Drawing.Size(67, 23);
             this.lungimeN.TabIndex = 15;
-            this.lungimeN.Text = "Lungime";
+            this.lungimeN.Text = "Height";
             this.lungimeN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // latime
@@ -180,7 +168,7 @@
             this.latime.Name = "latime";
             this.latime.Size = new System.Drawing.Size(66, 20);
             this.latime.TabIndex = 16;
-            this.latime.Text = "Alegeți!";
+            this.latime.Text = "Choose!";
             this.latime.Click += new System.EventHandler(this.Latime_Enter);
             this.latime.TextChanged += new System.EventHandler(this.Latime_Enter);
             // 
@@ -191,7 +179,7 @@
             this.mine.Name = "mine";
             this.mine.Size = new System.Drawing.Size(66, 20);
             this.mine.TabIndex = 17;
-            this.mine.Text = "Alegeți!";
+            this.mine.Text = "Choose!";
             this.mine.Click += new System.EventHandler(this.Mine_Enter);
             this.mine.TextChanged += new System.EventHandler(this.Mine_Enter);
             // 
@@ -199,12 +187,13 @@
             // 
             this.quitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.quitButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.quitButton.Location = new System.Drawing.Point(87, 239);
+            this.quitButton.Location = new System.Drawing.Point(87, 249);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(142, 27);
             this.quitButton.TabIndex = 13;
             this.quitButton.Text = "Quit";
             this.quitButton.UseVisualStyleBackColor = true;
+            this.quitButton.Click += new System.EventHandler(this.quitButton_Click);
             // 
             // mineN
             // 
@@ -214,9 +203,9 @@
             this.mineN.ForeColor = System.Drawing.Color.AliceBlue;
             this.mineN.Location = new System.Drawing.Point(533, 281);
             this.mineN.Name = "mineN";
-            this.mineN.Size = new System.Drawing.Size(53, 23);
+            this.mineN.Size = new System.Drawing.Size(61, 23);
             this.mineN.TabIndex = 18;
-            this.mineN.Text = "Mine";
+            this.mineN.Text = "Mines";
             this.mineN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lungime
@@ -226,7 +215,7 @@
             this.lungime.Name = "lungime";
             this.lungime.Size = new System.Drawing.Size(66, 20);
             this.lungime.TabIndex = 19;
-            this.lungime.Text = "Alegeți!";
+            this.lungime.Text = "Choose!";
             this.lungime.Click += new System.EventHandler(this.Lungime_Enter);
             this.lungime.TextChanged += new System.EventHandler(this.Lungime_Enter);
             // 
@@ -256,7 +245,6 @@
             this.Controls.Add(this.lungimeN);
             this.Controls.Add(this.latimeN);
             this.Controls.Add(this.quitButton);
-            this.Controls.Add(this.how);
             this.Controls.Add(this.greu);
             this.Controls.Add(this.usor);
             this.Controls.Add(this.mediu);
@@ -284,7 +272,6 @@
         private System.Windows.Forms.Label usor;
         private System.Windows.Forms.Label mediu;
         private System.Windows.Forms.Label greu;
-        private System.Windows.Forms.Button how;
         private System.Windows.Forms.Label latimeN;
         private System.Windows.Forms.Label lungimeN;
         private System.Windows.Forms.TextBox latime;

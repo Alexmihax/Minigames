@@ -49,15 +49,23 @@ namespace Minigames1
             form4.StartPosition = FormStartPosition.CenterScreen;
             form4.Show();
         }
-        private void How_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void Quit_Click(object sender, EventArgs e) => this.Close();
 
         private bool flag;
         private int val;
+
+        private void quitButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void nivel_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void Latime_Enter(object sender, EventArgs e)
         {
             
