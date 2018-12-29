@@ -267,17 +267,24 @@ namespace Minigames1
             }
 
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                
-                button1.Image = Properties.Resources.wowface1;
+            {                
+                button1.Image = Properties.Resources.wowface1;               
+            }
+        }
 
+
+        private void Button_Up(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                button1.Image = Properties.Resources.startface1;
                 coord = ((Button)sender).Location;
                 int x = (coord.X - start_x) / (button_size);
                 int y = (coord.Y - start_y) / (button_size);
                 if (firstclick == false)
                 {
                     firstclick = true;
-                    Generate_Map(width, height, mines,x,y);
+                    Generate_Map(width, height, mines, x, y);
                     Set_Map_Numbers(width, height);
                     StartTimer();
 
@@ -293,16 +300,6 @@ namespace Minigames1
                 if (btn_state[x, y] != -1 && !gameover) Click_Win_Check();
 
                 Button_Image(x, y);
-            }
-        }
-
-
-        private void Button_Up(object sender, MouseEventArgs e)
-        {
-            Console.WriteLine("button up!");
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
-            {
-                button1.Image = Properties.Resources.startface1;
             }
         }
 
