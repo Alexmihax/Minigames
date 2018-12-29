@@ -57,7 +57,7 @@ namespace Minigames1
                         height = MinesweeperSettings.h;
                         mines = MinesweeperSettings.mine_nr;
 
-                        if ( (width == 0 || height == 0 || mines == 0) || (width == 1 && height == 1 && mines == 1) || (width * height == mines) )
+                        if ( (width < 2 || height < 2 || mines < 2) || (width * height == mines) )
                         {
                             MessageBox.Show("Nice Try! xD\n\n I'm changing the numbers!");
                             width = 9;
@@ -69,9 +69,9 @@ namespace Minigames1
                         else if (width > 40 && height > 40)
                         {
                             MessageBox.Show("Nice Try! xD\n\n Values too High");
-                            width = 30;
-                            height = 16;
-                            mines = 99;
+                            width = 40;
+                            height = 40;
+                            mines = 800;
                             start_x = 15;
                         }
 
@@ -299,12 +299,12 @@ namespace Minigames1
 
         private void OnClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            if (e.Button == System.Windows.Forms.MouseButtons.Right && !gameover)
             {
                 if(firstclick)Flag_Cell(sender, e);
             }
 
-            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            if (e.Button == System.Windows.Forms.MouseButtons.Left && !gameover)
             {                
                 button1.Image = Properties.Resources.wowface1;               
             }

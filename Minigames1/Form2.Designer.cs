@@ -73,7 +73,6 @@
             this.nivel.TabIndex = 4;
             this.nivel.Text = "Difficulty Level";
             this.nivel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.nivel.Click += new System.EventHandler(this.nivel_Click);
             // 
             // startButton
             // 
@@ -97,7 +96,7 @@
             this.nivelDificulatate.Maximum = 3;
             this.nivelDificulatate.Minimum = 1;
             this.nivelDificulatate.Name = "nivelDificulatate";
-            this.nivelDificulatate.Size = new System.Drawing.Size(172, 58);
+            this.nivelDificulatate.Size = new System.Drawing.Size(172, 55);
             this.nivelDificulatate.TabIndex = 8;
             this.nivelDificulatate.Tag = "";
             this.nivelDificulatate.Value = 1;
@@ -106,9 +105,11 @@
             // 
             this.usor.AutoSize = true;
             this.usor.BackColor = System.Drawing.Color.Gray;
-            this.usor.Location = new System.Drawing.Point(395, 161);
+            this.usor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.usor.ForeColor = System.Drawing.Color.Lime;
+            this.usor.Location = new System.Drawing.Point(391, 161);
             this.usor.Name = "usor";
-            this.usor.Size = new System.Drawing.Size(30, 13);
+            this.usor.Size = new System.Drawing.Size(33, 15);
             this.usor.TabIndex = 9;
             this.usor.Tag = "Ușor";
             this.usor.Text = "Easy";
@@ -117,9 +118,11 @@
             // 
             this.mediu.AutoSize = true;
             this.mediu.BackColor = System.Drawing.Color.Gray;
-            this.mediu.Location = new System.Drawing.Point(459, 161);
+            this.mediu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mediu.ForeColor = System.Drawing.Color.Yellow;
+            this.mediu.Location = new System.Drawing.Point(452, 161);
             this.mediu.Name = "mediu";
-            this.mediu.Size = new System.Drawing.Size(44, 13);
+            this.mediu.Size = new System.Drawing.Size(53, 15);
             this.mediu.TabIndex = 10;
             this.mediu.Tag = "Mediu";
             this.mediu.Text = "Medium";
@@ -128,9 +131,11 @@
             // 
             this.greu.AutoSize = true;
             this.greu.BackColor = System.Drawing.Color.Gray;
-            this.greu.Location = new System.Drawing.Point(533, 161);
+            this.greu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.greu.ForeColor = System.Drawing.Color.Red;
+            this.greu.Location = new System.Drawing.Point(529, 161);
             this.greu.Name = "greu";
-            this.greu.Size = new System.Drawing.Size(30, 13);
+            this.greu.Size = new System.Drawing.Size(34, 15);
             this.greu.TabIndex = 11;
             this.greu.Tag = "Greu";
             this.greu.Text = "Hard";
@@ -210,7 +215,7 @@
             // 
             // lungime
             // 
-            this.lungime.Location = new System.Drawing.Point(448, 307);
+            this.lungime.Location = new System.Drawing.Point(445, 307);
             this.lungime.MaxLength = 3;
             this.lungime.Name = "lungime";
             this.lungime.Size = new System.Drawing.Size(66, 20);
@@ -222,7 +227,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(448, 249);
+            this.checkBox1.Location = new System.Drawing.Point(439, 240);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(61, 17);
             this.checkBox1.TabIndex = 20;

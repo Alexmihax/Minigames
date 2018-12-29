@@ -31,7 +31,7 @@ namespace Minigames1
         
         private void Start_Click(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (checkBox1.Checked && lungime.Text != null && lungime.Text!="Choose!" && latime.Text != null && latime.Text != "Choose!" && lungime.Text != null && mine.Text != "Choose!" && lungime.Text != null && mine.Text != "Choose!")
             {
                 custom = true;
                 w = int.Parse(lungime.Text);
@@ -59,11 +59,6 @@ namespace Minigames1
         private void quitButton_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void nivel_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Latime_Enter(object sender, EventArgs e)
