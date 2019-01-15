@@ -25,13 +25,5 @@ namespace Minigames1
             form2.StartPosition = FormStartPosition.CenterScreen;
             form2.Show();
         }
-
-        private void ShipPic_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var form3 = new Form3();
-            form3.Closed += (s, args) => this.Close();
-            form3.Show();
-        }
     }
 }

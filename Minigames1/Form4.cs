@@ -431,16 +431,17 @@ namespace Minigames1
             for (i = 1; i <= width; i++)
                 for (j = 1; j <= height; j++)
                 {
-                    if (i!= startx || j!= starty)
-                    {
+                    if ((i != startx || j != starty) && (i != startx || j != starty-1) && (i != startx || j != starty+1) && (i != startx-1 || j != starty-1) && (i != startx-1 || j != starty + 1) && (i != startx-1 || j != starty) && (i != startx + 1 || j != starty + 1) && (i != startx + 1 || j != starty) && (i != startx + 1 || j != starty -1))
+                    { 
                         coord_x.Add(i);
                         coord_y.Add(j);
                     }
+                    
                 }
             while (mines > 0)
             { 
                 int random_number = random.Next(0, coord_x.Count);
-                if  (btn_state[coord_x[random_number], coord_y[random_number]] != -1)
+                if  (btn_state[coord_x[random_number], coord_y[random_number]] != -9)
                     {
                         btn_state[coord_x[random_number], coord_y[random_number]] = -1;
                         saved_btn_state[coord_x[random_number], coord_y[random_number]] = -1;
@@ -500,7 +501,7 @@ namespace Minigames1
         }
         private void Button1_Click(object sender, EventArgs e) //A.K.A Reset Game Button
         {            
-            ResetGame();
+            if(firstclick)ResetGame();
         }
     }
 }
