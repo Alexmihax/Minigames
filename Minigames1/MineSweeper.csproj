@@ -189,5 +189,8 @@
   <ItemGroup>
     <None Include="Resources\wowface1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
