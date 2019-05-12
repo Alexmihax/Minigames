@@ -61,6 +61,11 @@ namespace Minigames1
             Close();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+                System.Diagnostics.Process.Start("https://www.instructables.com/id/How-to-beat-Minesweeper/");
+        }        
+
         private void Latime_Enter(object sender, EventArgs e)
         {
             

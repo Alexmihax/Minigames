@@ -124,7 +124,7 @@ namespace Minigames1
             }
             else
             {
-                start_x = ((this.Width - ((button_size)  * width)-54)/2);
+                start_x = ((this.Width - ((button_size)  * width)-54)/2);   
             }
             this.Height = (button_size * height) + 120;
             nrmine = mines;
